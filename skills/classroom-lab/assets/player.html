@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@@TITLE@@</title>
+<style>
+:root{color-scheme:light;--ink:#173b40;--muted:#51676b;--paper:#f5f3eb;--line:#cbd6d2;--accent:#087f8c;--orange:#b8522a}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+button,input{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:9px 17px;min-height:44px}
+button:hover{border-color:var(--accent)}button:disabled{opacity:.45;cursor:default}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d47c35;outline-offset:3px}
+button.primary{background:var(--ink);border-color:var(--ink);color:#fff}button[aria-pressed=true]{background:#d8eeea;border-color:var(--accent)}
+main{max-width:1320px;margin:auto;padding:30px 32px 40px}header{display:flex;justify-content:space-between;align-items:start;gap:24px;margin-bottom:22px}
+.brand{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:750;margin-bottom:8px}h1{font-size:clamp(27px,3.3vw,42px);line-height:1.25;margin:0 0 8px;font-weight:750;letter-spacing:-.03em}
+.subtitle{margin:0;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:20px;align-items:start}.layout:has(aside[hidden]){grid-template-columns:1fr}
+.experiment{min-width:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.scene-wrap{overflow-x:auto;background:linear-gradient(#fff,#f1f7f5)}
+svg{display:block;width:100%;min-width:0;height:clamp(230px,35vh,330px)}svg text{font-family:inherit}.scene-label{display:flex;justify-content:space-between;padding:13px 20px;border-bottom:1px solid #dfe6e3;font-size:13px;color:var(--muted)}
+.metrics{display:flex;gap:24px;flex-wrap:wrap;padding:12px 22px;border-top:1px solid #e1e8e5}.metric{flex:1;min-width:100px}.metric span{display:block;font-size:13px;color:var(--muted)}.metric strong{font-size:23px;font-variant-numeric:tabular-nums}
+.observation{padding:0 22px 16px;margin:0;color:var(--muted);font-size:15px}
+aside{background:#e9efea;border-radius:12px;padding:20px}h2{font-size:18px;margin:0 0 14px}.param{display:block;margin-bottom:22px}.param-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px;font-size:15px}.param output{font-weight:750;color:var(--accent);white-space:nowrap}
+input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer;min-height:26px}.hint{font-size:13px;color:var(--muted);margin:10px 0 0}
+.transport{padding:17px 20px;border-top:1px solid var(--line)}.buttons{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.clock{font-size:14px;font-variant-numeric:tabular-nums;color:var(--muted);margin-left:auto}
+.steps{display:flex;gap:8px;margin:20px 0 14px;flex-wrap:wrap}.steps button{background:transparent;border:0;border-bottom:3px solid transparent;border-radius:0;color:var(--muted);padding:8px 13px}
+.steps button[aria-current=step]{border-bottom-color:var(--accent);color:var(--ink);font-weight:700}
+.teaching{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;padding:20px 24px;background:#fff;border:1px solid var(--line);border-radius:12px}.question{font-size:22px;line-height:1.5;font-weight:650;margin:0}.explanation{margin:10px 0 0;color:var(--accent);font-size:18px}
+.tag{font-size:12px;letter-spacing:.08em;color:var(--muted);margin-bottom:4px}details{margin-top:20px;color:var(--muted);font-size:14px}summary{cursor:pointer;min-height:36px}.details-body{padding:8px 0;max-width:950px}.details-body a{color:var(--accent)}.script{white-space:pre-wrap;line-height:1.8}.error{background:#fff0e9;border:2px solid #b8522a;padding:20px;border-radius:12px;color:#813817}
+[hidden]{display:none!important}:fullscreen{overflow:auto}:fullscreen main{max-width:1500px}
+@media(max-width:900px){main{padding:22px 18px}.layout{grid-template-columns:1fr}aside{padding:18px}#parameters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}.param{margin-bottom:12px}}
+@media(min-width:901px) and (max-height:850px){main{padding:16px 28px}header{margin-bottom:12px}h1{font-size:32px}.brand{margin-bottom:3px}svg{height:230px}.scene-label{padding:8px 20px}.metrics{padding:8px 20px}.observation{padding-bottom:10px}.transport{padding:10px 20px}.steps{margin:10px 0 8px}.teaching{padding:12px 20px}.question{font-size:20px}details{margin-top:10px}}
+@media(max-width:540px){svg{height:auto}svg text{font-size:32px}#fullscreen{flex-shrink:0;white-space:nowrap}main{padding:18px 12px}header{gap:10px}#fullscreen{font-size:14px;padding:6px 12px}.subtitle{font-size:14px}.teaching{grid-template-columns:1fr;padding:18px}.question{font-size:20px}.metrics{gap:12px}.metric strong{font-size:20px}#parameters{grid-template-columns:1fr}.clock{width:100%;margin:0}.steps{gap:0}.steps button{padding:8px}.hint{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+<body>
+<main>
+<header><div><div class="brand">课堂实验室 / CLASSROOM LAB</div><h1 id="title"></h1><p class="subtitle" id="subtitle"></p></div><button id="fullscreen">全屏演示</button></header>
+<div id="error" class="error" hidden role="alert"></div>
+<div class="layout">
+<section class="experiment" aria-label="实验演示">
+<div class="scene-label"><span id="stage-label"></span><span>模型演示</span></div>
+<div class="scene-wrap"><svg id="scene" viewBox="0 0 960 500" role="img" aria-label="实验动画"></svg></div>
+<div class="metrics" id="metrics"></div><p class="observation" id="observation"></p>
+<div class="transport"><div class="buttons"><button id="play" class="primary">播放演示</button><button id="reset">重播</button><button id="voice-toggle" aria-pressed="true">讲解：开</button><button id="previous">上一步</button><button id="next">下一步</button><span class="clock" id="clock"></span></div><p id="voice-status" class="hint" role="status" hidden></p><input id="timeline" type="range" min="0" step=".05" value="0" aria-label="动画进度"></div>
+</section>
+<aside id="parameter-panel"><h2>动手试一试</h2><div id="parameters"></div><p class="hint">调整参数后暂停观察，点击播放继续。重播恢复初始条件。</p></aside>
+</div>
+<nav class="steps" id="steps" aria-label="实验步骤"></nav>
+<section class="teaching" aria-label="课堂提问"><div><div class="tag">想一想</div><p class="question" id="question"></p><p class="explanation" id="explanation" hidden></p></div><button id="reveal" aria-pressed="false">显示解释</button></section>
+<details><summary>讲解稿与模型说明</summary><div class="details-body"><p id="model-note"></p><div id="sources"></div><p id="checks"></p><div class="script" id="script"></div><button id="download-script">下载讲解稿</button><p class="hint">内置讲解随动画播放，也可以关闭声音自行讲课。调整参数后暂停固定讲解，重播恢复。</p></div></details>
+</main>
+<audio id="narration-audio" preload="auto" hidden></audio>
+<script id="lesson-data" type="application/json">@@LESSON_JSON@@</script>
+<script>
+'use strict';
+@@SCENE_JS@@
+</script>
+<script>
+'use strict';
+(() => {
+const $ = id => document.getElementById(id);
+const lesson = JSON.parse($('lesson-data').textContent);
+let experiment, frame = null, last = null, activeStage = 0;
+const state = {time:0, playing:false, params:{}, revealed:false};
+const controls = new Map();
+const voice = $('narration-audio');
+let voiceEnabled = true, customParameters = false, audioStage = -1, audioToken = 0;
+const hasNarration = lesson.stages.some(s=>s.audio);
+function voiceStatus(message='') {$('voice-status').textContent=message;$('voice-status').hidden=!message;}
+function syncAudio() {
+ const token=++audioToken, stage=lesson.stages[activeStage];
+ if(audioStage!==activeStage){voice.pause();audioStage=activeStage;voice.src=stage.audio||'';}
+ if(!hasNarration){voiceStatus('本文件未包含讲解音频。');return;}
+ const offset=Math.max(0,state.time-stage.at);
+ const duration=stage.audioDuration||voice.duration;
+ if(!state.playing||!voiceEnabled||customParameters||!stage.audio||(Number.isFinite(duration)&&offset>=duration)){
+  voice.pause();
+  if(customParameters)voiceStatus('你已改变实验条件，固定讲解暂停；重播恢复演示和讲解。');
+  return;
+ }
+ voiceStatus();
+ try{voice.currentTime=offset;}catch{}
+ const started=voice.play();
+ if(started)started.catch(e=>{if(token===audioToken&&e.name!=='AbortError')voiceStatus('声音未能播放，请再点一次播放或检查设备声音。');});
+}
+voice.addEventListener('error',()=>{if(lesson.stages[audioStage]?.audio)voiceStatus('讲解音频无法读取，动画仍可使用。');});
+const make = (tag,text) => {const el=document.createElement(tag); if(text!==undefined)el.textContent=text; return el;};
+function report(err) { pause(); $('error').hidden=false; $('error').textContent='演示需要修正：'+err.message; $('play').disabled=true; }
+function stageAt(t) {let n=0;lesson.stages.forEach((s,i)=>{if(t>=s.at)n=i;});return n;}
+function defaultsThrough(index) {
+ const values=Object.fromEntries(lesson.parameters.map(p=>[p.key,p.value]));
+ for(let i=0;i<=index;i++)Object.assign(values,lesson.stages[i].values||{});
+ return values;
+}
+function syncInputs() {lesson.parameters.forEach(p=>{const c=controls.get(p.key);c.input.value=state.params[p.key];c.output.textContent=state.params[p.key]+(p.unit?' '+p.unit:'');});}
+function render() {
+ const s=lesson.stages[activeStage];
+ $('stage-label').textContent=String(activeStage+1).padStart(2,'0')+' / '+s.title;
+ $('question').textContent=s.question; $('explanation').textContent=s.explanation; $('explanation').hidden=!state.revealed;
+ $('reveal').textContent=state.revealed?'隐藏解释':'显示解释';$('reveal').setAttribute('aria-pressed',String(state.revealed));
+ $('clock').textContent=state.time.toFixed(1)+' / '+lesson.duration+' 秒';$('timeline').value=state.time;
+ $('play').textContent=state.playing?'暂停':'播放演示';
+ $('previous').disabled=activeStage===0;$('next').disabled=activeStage===lesson.stages.length-1;
+ [...$('steps').children].forEach((b,i)=>{if(i===activeStage)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
+ try{
+ const result=experiment.render({time:state.time,localTime:state.time-s.at,stageIndex:activeStage,params:{...state.params},revealed:state.revealed})||{};
+ $('metrics').replaceChildren(...(result.metrics||[]).map(m=>{const d=make('div');d.className='metric';d.append(make('span',m.label),make('strong',String(m.value)));return d;}));
+ $('observation').textContent=result.observation||'';
+ if(result.question!==undefined)$('question').textContent=result.question;
+ if(result.explanation!==undefined)$('explanation').textContent=result.explanation;
+ }catch(e){report(e);}
+}
+function advance(t, recompute=false) {
+ const next=stageAt(t);
+ if(next!==activeStage||recompute) {
+  state.params=defaultsThrough(next);activeStage=next;state.revealed=false;customParameters=false;voiceStatus();syncInputs();
+ }
+ state.time=t;render();
+ if(audioStage!==activeStage||recompute)syncAudio();
+}
+function tick(now) {
+ if(!state.playing)return;
+ if(last!==null)advance(Math.min(lesson.duration,state.time+(now-last)/1000));
+ last=now;
+ if(!state.playing)return;
+ if(state.time>=lesson.duration){pause();return;}
+ frame=requestAnimationFrame(tick);
+}
+function pause(){++audioToken;voice.pause();state.playing=false;last=null;if(frame!==null)cancelAnimationFrame(frame);frame=null;if(experiment)$('play').textContent='播放演示';}
+function play(){if($('error').hidden===false)return;if(state.playing)return;if(state.time>=lesson.duration)reset();state.playing=true;last=null;$('play').textContent='暂停';syncAudio();frame=requestAnimationFrame(tick);}
+function seek(t){pause();if(!Number.isFinite(Number(t)))throw Error('进度必须为数值');advance(Math.max(0,Math.min(lesson.duration,Number(t))));}
+function reset(){pause();advance(0,true);voice.currentTime=0;}
+function setParameter(key,value) {
+ const p=lesson.parameters.find(p=>p.key===key);value=Number(value);
+ if(!p||!Number.isFinite(value)||value<p.min||value>p.max||Math.abs((value-p.min)/p.step-Math.round((value-p.min)/p.step))>1e-7)throw Error('参数超出范围或步长不匹配');
+ pause();customParameters=true;state.params[key]=value;state.time=lesson.stages[activeStage].at;state.revealed=false;syncInputs();render();syncAudio();
+}
+function goStage(i){pause();advance(lesson.stages[i].at,true);}
+try{
+ $('title').textContent=lesson.title;$('subtitle').textContent=lesson.subtitle;$('model-note').textContent=lesson.modelNote;
+ $('scene').setAttribute('aria-label',lesson.title+'：'+lesson.modelNote);
+ $('timeline').max=lesson.duration;
+ if(!lesson.parameters.length)$('parameter-panel').hidden=true;
+ lesson.parameters.forEach(p=>{
+  const label=make('label');label.className='param';const head=make('span');head.className='param-head';
+  const input=make('input');input.type='range';input.id='param-'+p.key;input.min=p.min;input.max=p.max;input.step=p.step;input.setAttribute('aria-label',p.label);
+  const output=make('output');output.htmlFor=input.id;head.append(make('span',p.label),output);label.append(head,input);$('parameters').append(label);
+  controls.set(p.key,{input,output});input.addEventListener('input',()=>setParameter(p.key,input.value));
+ });
+ lesson.stages.forEach((s,i)=>{const b=make('button',String(i+1).padStart(2,'0')+' '+s.title);b.onclick=()=>goStage(i);$('steps').append(b);});
+ lesson.sources.forEach(s=>{const p=make('p');const a=make('a',s.label);a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';p.append(a);$('sources').append(p);});
+ const script=lesson.title+'\n\n'+lesson.stages.map(s=>s.title+'（'+s.at+'秒起）\n'+s.narration).join('\n\n')+'\n\n模型说明：'+lesson.modelNote;
+ $('script').textContent=script;
+ $('download-script').onclick=()=>{const url=URL.createObjectURL(new Blob([script],{type:'text/plain;charset=utf-8'}));const a=make('a');a.href=url;a.download='课堂讲解稿.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+ experiment=createExperiment($('scene'));
+ if(!experiment||typeof experiment.render!=='function')throw Error('实验缺少render方法');
+ const checks=typeof experiment.check==='function'?experiment.check():[];
+ $('checks').textContent=checks.length?'模型自检：'+checks.join('；'):'本文件未提供自动模型检查，请核对科学关系。';
+ window.classroomLab={seek,play,pause,reset,setParameter,checks,getState:()=>({...state,params:{...state.params},stageIndex:activeStage})};
+ $('play').onclick=()=>state.playing?pause():play();$('reset').onclick=reset;
+ $('voice-toggle').disabled=!hasNarration;
+ $('voice-toggle').textContent=hasNarration?'讲解：开':'无讲解音频';
+ $('voice-toggle').onclick=()=>{voiceEnabled=!voiceEnabled;$('voice-toggle').textContent=voiceEnabled?'讲解：开':'讲解：关';$('voice-toggle').setAttribute('aria-pressed',String(voiceEnabled));syncAudio();};
+ $('previous').onclick=()=>goStage(Math.max(0,activeStage-1));$('next').onclick=()=>goStage(Math.min(lesson.stages.length-1,activeStage+1));
+ $('timeline').oninput=()=>seek($('timeline').value);
+ $('reveal').onclick=()=>{state.revealed=!state.revealed;render();};
+ $('fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else $('fullscreen').textContent='请用浏览器全屏';}catch{$('fullscreen').textContent='请用浏览器全屏';}};
+ document.addEventListener('fullscreenchange',()=>{$('fullscreen').textContent=document.fullscreenElement?'退出全屏':'全屏演示';});
+ window.addEventListener('pagehide',pause);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+ document.addEventListener('keydown',e=>{if(e.target.closest('button,input,select,textarea,a,summary')||e.ctrlKey||e.metaKey||e.altKey)return;
+ if(e.code==='Space'){e.preventDefault();state.playing?pause():play();}
+ if(e.code==='ArrowRight'){e.preventDefault();goStage(Math.min(lesson.stages.length-1,activeStage+1));}
+ if(e.code==='ArrowLeft'){e.preventDefault();goStage(Math.max(0,activeStage-1));}});
+ reset();
+}catch(e){report(e);}
+})();
+</script>
+</body></html>

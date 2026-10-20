@@ -1,0 +1,106 @@
+{
+  "browser": "155.0.8059.85",
+  "results": [
+    {
+      "name": "initial-no-error",
+      "passed": true
+    },
+    {
+      "name": "initial-predict-no-result",
+      "passed": true
+    },
+    {
+      "name": "play-then-pause",
+      "passed": true
+    },
+    {
+      "name": "step-next",
+      "passed": true
+    },
+    {
+      "name": "30-degree-label",
+      "passed": true
+    },
+    {
+      "name": "reveal",
+      "passed": true
+    },
+    {
+      "name": "hide",
+      "passed": true
+    },
+    {
+      "name": "stage-applies-60",
+      "passed": true
+    },
+    {
+      "name": "60-degree-label",
+      "passed": true
+    },
+    {
+      "name": "slider-zero",
+      "passed": true
+    },
+    {
+      "name": "zero-geometry",
+      "passed": true
+    },
+    {
+      "name": "zero-observation",
+      "passed": true
+    },
+    {
+      "name": "75-degree-label",
+      "passed": true
+    },
+    {
+      "name": "slider-resets-reveal",
+      "passed": true
+    },
+    {
+      "name": "reset-restores-defaults",
+      "passed": true
+    },
+    {
+      "name": "last-stage-zero",
+      "passed": true
+    },
+    {
+      "name": "finish-stops",
+      "passed": true
+    },
+    {
+      "name": "end-play-restarts",
+      "passed": true
+    },
+    {
+      "name": "previous-disabled-at-start",
+      "passed": true
+    },
+    {
+      "name": "previous-navigates",
+      "passed": true
+    },
+    {
+      "name": "narrow-page-no-overflow",
+      "passed": true
+    },
+    {
+      "name": "narrow-controls-usable",
+      "passed": true
+    },
+    {
+      "name": "local-file-only",
+      "passed": true
+    },
+    {
+      "name": "no-pageerrors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "file:///<test-workspace>/index.html"
+  ],
+  "privacyNote": "Local username/path redacted; original test log retained outside distribution."
+}

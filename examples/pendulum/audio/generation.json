@@ -1,0 +1,25 @@
+{
+  "backend": "Edge online TTS via edge-tts",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+5%",
+  "stages": [
+    {
+      "stage": 0,
+      "file": "audio/stage-1.mp3",
+      "duration": 6.96
+    },
+    {
+      "stage": 1,
+      "file": "audio/stage-2.mp3",
+      "duration": 7.896
+    },
+    {
+      "stage": 2,
+      "file": "audio/stage-3.mp3",
+      "duration": 7.68
+    }
+  ],
+  "generationRequiresNetwork": true,
+  "playbackRequiresNetwork": false,
+  "privateVoiceModelUsed": false
+}

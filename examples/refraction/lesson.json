@@ -1,0 +1,68 @@
+{
+  "title": "光从空气进入水中",
+  "subtitle": "初中物理 · 改变入射角，观察折射方向",
+  "modelNote": "模型计算：空气折射率取1.00，水取1.33；平直界面、均匀介质、单色细光束。不画部分反射光。光点和播放时间仅表示传播方向，不代表真实光速；光路为侧面示意。",
+  "duration": 49,
+  "parameters": [
+    {
+      "key": "angle",
+      "label": "入射角 i",
+      "unit": "°",
+      "min": 0,
+      "max": 75,
+      "step": 1,
+      "value": 30
+    }
+  ],
+  "stages": [
+    {
+      "at": 0,
+      "title": "先预测",
+      "question": "光进入水中后，会沿原方向前进吗？",
+      "explanation": "观察时要用垂直于水面的法线作为角度基准。先预测，再点下一步查看。",
+      "narration": "从空气向水面照射一束光。虚线是法线。请猜猜，光进入水中以后会朝哪个方向传播？",
+      "audioFile": "audio/stage-1.mp3",
+      "audioDuration": 8.928
+    },
+    {
+      "at": 12,
+      "title": "观察折射",
+      "question": "折射光更靠近法线，还是更远离法线？",
+      "explanation": "斜入射时，光从空气进入水中会向法线偏折；垂直入射时传播方向不变。",
+      "narration": "现在看水中的折射光。比较入射角和折射角，注意两个角都从法线量起。",
+      "audioFile": "audio/stage-2.mp3",
+      "audioDuration": 7.128
+    },
+    {
+      "at": 24,
+      "title": "增大入射角",
+      "values": {
+        "angle": 60
+      },
+      "question": "只增大入射角，折射角会怎样改变？",
+      "explanation": "空气和水保持不变时，入射角越大，折射角也越大；斜入射时折射角仍小于入射角。",
+      "narration": "保持两种介质不变，把入射角从三十度增大到六十度。观察折射角怎样变化，也可以拖动滑块试一试。",
+      "audioFile": "audio/stage-3.mp3",
+      "audioDuration": 9.384
+    },
+    {
+      "at": 36,
+      "title": "检查特殊情况",
+      "values": {
+        "angle": 0
+      },
+      "question": "垂直射入水中，光路还会改变方向吗？",
+      "explanation": "入射角为零时，折射角也为零。拖动滑块离开零度，就回到斜入射情形。",
+      "narration": "最后让光沿法线垂直射入。入射角和折射角都是零，方向不改变。光在水中的传播速度仍然比在空气中小。",
+      "audioFile": "audio/stage-4.mp3",
+      "audioDuration": 10.608
+    }
+  ],
+  "sources": [
+    {
+      "label": "科学依据：OpenStax《大学物理》第三卷 1.3 折射（已查阅）",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction"
+    }
+  ],
+  "narrationVoice": "zh-CN-XiaoxiaoNeural"
+}

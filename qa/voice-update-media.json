@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-20",
+  "version": "0.2.1",
+  "clips": [
+    {
+      "lesson": "examples/refraction/lesson.json",
+      "stage": 0,
+      "file": "audio/stage-1.mp3",
+      "duration": 10.135542,
+      "sha256": "c3ef6d9378fea938da6a4326dc9b06a53a97f3a13954b658895e1457b2c1783d",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x154f0ba40] mean_volume: -18.5 dB",
+        "[Parsed_volumedetect_0 @ 0x154f0ba40] max_volume: -2.2 dB"
+      ]
+    },
+    {
+      "lesson": "examples/refraction/lesson.json",
+      "stage": 1,
+      "file": "audio/stage-2.mp3",
+      "duration": 8.695875,
+      "sha256": "1fa292ce8b9d546e1b9dc749b8c8c43e4292c557eb3a7766e9f0afe1633b23f4",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x11e9042a0] mean_volume: -18.9 dB",
+        "[Parsed_volumedetect_0 @ 0x11e9042a0] max_volume: -2.4 dB"
+      ]
+    },
+    {
+      "lesson": "examples/refraction/lesson.json",
+      "stage": 2,
+      "file": "audio/stage-3.mp3",
+      "duration": 10.541875,
+      "sha256": "bc6c77bbe405f71f787695adefa294476295f50e8ac2f143b47d7e78e2e68bdf",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x15ba04160] mean_volume: -19.1 dB",
+        "[Parsed_volumedetect_0 @ 0x15ba04160] max_volume: -3.3 dB"
+      ]
+    },
+    {
+      "lesson": "examples/refraction/lesson.json",
+      "stage": 3,
+      "file": "audio/stage-4.mp3",
+      "duration": 11.331333,
+      "sha256": "cb569e9d644adf410ee7d3f7c4e8276206d0a907d7701e8a364d52f2b5859ce2",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x135904160] mean_volume: -19.2 dB",
+        "[Parsed_volumedetect_0 @ 0x135904160] max_volume: -2.8 dB"
+      ]
+    },
+    {
+      "lesson": "skills/classroom-lab/assets/lever-demo/lesson.json",
+      "stage": 0,
+      "file": "audio/stage-1.mp3",
+      "duration": 7.94125,
+      "sha256": "df27b6d9aeaaabb8752da4b4af1ffd4ed8476b6ee6c1d63f060a7a98c3ae5968",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x129004bf0] mean_volume: -19.0 dB",
+        "[Parsed_volumedetect_0 @ 0x129004bf0] max_volume: -2.4 dB"
+      ]
+    },
+    {
+      "lesson": "skills/classroom-lab/assets/lever-demo/lesson.json",
+      "stage": 1,
+      "file": "audio/stage-2.mp3",
+      "duration": 8.301167,
+      "sha256": "2b4d598e3b23878fd10d980265ddd96f6eb2936e7999d14c0bd0df513e7d63c3",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x11d404c10] mean_volume: -18.5 dB",
+        "[Parsed_volumedetect_0 @ 0x11d404c10] max_volume: -2.4 dB"
+      ]
+    },
+    {
+      "lesson": "skills/classroom-lab/assets/lever-demo/lesson.json",
+      "stage": 2,
+      "file": "audio/stage-3.mp3",
+      "duration": 8.219875,
+      "sha256": "54fb1dc707cd96d261023b1c1f073dd818abd1722a167dc45bf4b5df968cc051",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x12e1047e0] mean_volume: -18.9 dB",
+        "[Parsed_volumedetect_0 @ 0x12e1047e0] max_volume: -2.5 dB"
+      ]
+    },
+    {
+      "lesson": "examples/pendulum/lesson.json",
+      "stage": 0,
+      "file": "audio/stage-1.mp3",
+      "duration": 7.906417,
+      "sha256": "54d276b5c971198055fa1851ed244d86e674a6c2bf17957f164eb93f24cd4097",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x121704580] mean_volume: -19.5 dB",
+        "[Parsed_volumedetect_0 @ 0x121704580] max_volume: -2.4 dB"
+      ]
+    },
+    {
+      "lesson": "examples/pendulum/lesson.json",
+      "stage": 1,
+      "file": "audio/stage-2.mp3",
+      "duration": 8.986125,
+      "sha256": "f24c420783a59014211b4ef4a68ad37494110162ad98cb25d0777fe9e1b46977",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x153004380] mean_volume: -19.0 dB",
+        "[Parsed_volumedetect_0 @ 0x153004380] max_volume: -2.4 dB"
+      ]
+    },
+    {
+      "lesson": "examples/pendulum/lesson.json",
+      "stage": 2,
+      "file": "audio/stage-3.mp3",
+      "duration": 9.055792,
+      "sha256": "1dc6f2b4f1104c304c37ca4b14d91b6ef8b6c62de43952083b1c5f6ca68f740e",
+      "decode": "passed",
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x14c804270] mean_volume: -19.4 dB",
+        "[Parsed_volumedetect_0 @ 0x14c804270] max_volume: -2.4 dB"
+      ]
+    }
+  ],
+  "boundary": "Audio decoding, signal levels, embedding and stage duration checked. Player code unchanged; this is not a new browser interaction or human listening test."
+}

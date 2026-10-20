@@ -1,0 +1,56 @@
+{
+  "testedAt": "2026-10-20T14:23:40.383Z",
+  "browser": "155.0.8059.85",
+  "results": [
+    {
+      "name": "lever",
+      "passed": true,
+      "modelChecks": [
+        "19.6 N·cm平衡基准",
+        "左右反向对照",
+        "超出可调范围的无解情形"
+      ],
+      "fileProtocol": true,
+      "externalRequests": [],
+      "errors": [],
+      "pauseResume": true,
+      "deterministicSeek": true,
+      "narrationDownload": true,
+      "mobileDocumentOverflow": false
+    },
+    {
+      "name": "pendulum",
+      "passed": true,
+      "modelChecks": [
+        "1米摆周期2.00709秒",
+        "摆长四倍周期两倍",
+        "周期闭合及摆长几何"
+      ],
+      "fileProtocol": true,
+      "externalRequests": [],
+      "errors": [],
+      "pauseResume": true,
+      "deterministicSeek": true,
+      "narrationDownload": true,
+      "mobileDocumentOverflow": false
+    },
+    {
+      "name": "refraction",
+      "passed": true,
+      "modelChecks": [
+        "垂直入射0°",
+        "30°→22.1°",
+        "60°→40.6°",
+        "1–75°单调性与偏折方向",
+        "折射角并非总等于入射角"
+      ],
+      "fileProtocol": true,
+      "externalRequests": [],
+      "errors": [],
+      "pauseResume": true,
+      "deterministicSeek": true,
+      "narrationDownload": true,
+      "mobileDocumentOverflow": false
+    }
+  ]
+}

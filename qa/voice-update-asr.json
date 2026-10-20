@@ -1,0 +1,99 @@
+{
+  "model": "FunAudioLLM/Fun-ASR-Nano-2512 (local cached model)",
+  "scriptPromptProvided": false,
+  "networkModelsDisabled": true,
+  "checks": [
+    {
+      "file": "examples/refraction/audio/stage-1.mp3",
+      "expected": "从空气向水面照射一束光。虚线是法线。请猜猜，光进入水中以后会朝哪个方向传播？",
+      "transcript": "从空气向水面照射一束光虚线是法线请猜猜光进入水中以后会朝哪个方向传播",
+      "sha256": "c3ef6d9378fea938da6a4326dc9b06a53a97f3a13954b658895e1457b2c1783d",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "examples/refraction/audio/stage-2.mp3",
+      "expected": "现在看水中的折射光。比较入射角和折射角，注意两个角都从法线量起。",
+      "transcript": "现在看水中的折射光比较入射角和折射角注意两个角都从法线量起",
+      "sha256": "1fa292ce8b9d546e1b9dc749b8c8c43e4292c557eb3a7766e9f0afe1633b23f4",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "examples/refraction/audio/stage-3.mp3",
+      "expected": "保持两种介质不变，把入射角从三十度增大到六十度。观察折射角怎样变化，也可以拖动滑块试一试。",
+      "transcript": "保持两种介质不变把入射角从三十度增大到六十度观察折射角怎样变化也可以拖动滑块试一试",
+      "sha256": "bc6c77bbe405f71f787695adefa294476295f50e8ac2f143b47d7e78e2e68bdf",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "examples/refraction/audio/stage-4.mp3",
+      "expected": "最后让光沿法线垂直射入。入射角和折射角都是零，方向不改变。光在水中的传播速度仍然比在空气中小。",
+      "transcript": "最后让光沿法线垂直射入入射角和折射角都是零方向不改变光在水中的传播速度仍然比在空气中小",
+      "sha256": "cb569e9d644adf410ee7d3f7c4e8276206d0a907d7701e8a364d52f2b5859ce2",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "skills/classroom-lab/assets/lever-demo/audio/stage-1.mp3",
+      "expected": "左边一百克，右边五十克，距离支点都是二十厘米。先猜一猜，哪一边会下降？",
+      "transcript": "左边一百克右边五十克距离支点都是二十厘米先猜一猜哪一边会下降",
+      "sha256": "df27b6d9aeaaabb8752da4b4af1ffd4ed8476b6ee6c1d63f060a7a98c3ae5968",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "skills/classroom-lab/assets/lever-demo/audio/stage-2.mp3",
+      "expected": "现在保持砝码不变，把右侧距离改成四十厘米，观察它能不能重新平衡。",
+      "transcript": "现在保持砝码不变把右侧距离改成四十厘米观察它能不能重新平衡",
+      "sha256": "2b4d598e3b23878fd10d980265ddd96f6eb2936e7999d14c0bd0df513e7d63c3",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "skills/classroom-lab/assets/lever-demo/audio/stage-3.mp3",
+      "expected": "试着换一组砝码，再调整右侧距离。用力和力臂的关系，解释你找到的结果。",
+      "transcript": "试着换一组砝码再调整右侧距离用力和力臂的关系解释你找到的结果",
+      "sha256": "54fb1dc707cd96d261023b1c1f073dd818abd1722a167dc45bf4b5df968cc051",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "examples/pendulum/audio/stage-1.mp3",
+      "expected": "先看两只一样长的摆。从相同角度同时放开，观察它们是不是一起往返。",
+      "transcript": "先看两只一样长的摆从相同角度同时放开观察它们是不是一起往返",
+      "sha256": "54d276b5c971198055fa1851ed244d86e674a6c2bf17957f164eb93f24cd4097",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "examples/pendulum/audio/stage-2.mp3",
+      "expected": "现在只增加右侧摆长，其他条件不变。观察同一段时间里，哪只摆完成的往返更少。",
+      "transcript": "现在只增加右侧摆长其他条件不变观察同一段时间里哪只摆完成的往返更少",
+      "sha256": "f24c420783a59014211b4ef4a68ad37494110162ad98cb25d0777fe9e1b46977",
+      "ratio": 1.0,
+      "differences": []
+    },
+    {
+      "file": "examples/pendulum/audio/stage-3.mp3",
+      "expected": "接下来保持摆长不变，只换更重的摆球。比较前后的周期数字，再解释这个结果。",
+      "transcript": "接下来保持百常不变直欢更重的摆球比较前后的周期数字再解释这个结果",
+      "sha256": "1dc6f2b4f1104c304c37ca4b14d91b6ef8b6c62de43952083b1c5f6ca68f740e",
+      "ratio": 0.875,
+      "differences": [
+        {
+          "operation": "replace",
+          "expected": "摆长",
+          "recognized": "百常"
+        },
+        {
+          "operation": "replace",
+          "expected": "只换",
+          "recognized": "直欢"
+        }
+      ]
+    }
+  ],
+  "boundary": "ASR checks wording; it does not establish voice naturalness or user approval."
+}

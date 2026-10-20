@@ -1,0 +1,126 @@
+{
+  "version": "0.2.2",
+  "clips": [
+    {
+      "file": "examples/refraction/audio/stage-1.mp3",
+      "duration": 8.928,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "baecc294ff4441c60d97387dd9cedca39ec3de1570f0e282c675171010d3cdf1",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x12b806890] mean_volume: -18.9 dB",
+        "[Parsed_volumedetect_0 @ 0x12b806890] max_volume: -2.9 dB"
+      ]
+    },
+    {
+      "file": "examples/refraction/audio/stage-2.mp3",
+      "duration": 7.128,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "a1958662e093ca155871bba82b27e5be574d38fdc049b2164342e4e998687bb6",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x11cf05660] mean_volume: -18.7 dB",
+        "[Parsed_volumedetect_0 @ 0x11cf05660] max_volume: -4.4 dB"
+      ]
+    },
+    {
+      "file": "examples/refraction/audio/stage-3.mp3",
+      "duration": 9.384,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "5546c6eead86afc565189cfed22de4e234cbdb758e7699cddbe8e94c816c781a",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x137709500] mean_volume: -18.9 dB",
+        "[Parsed_volumedetect_0 @ 0x137709500] max_volume: -3.0 dB"
+      ]
+    },
+    {
+      "file": "examples/refraction/audio/stage-4.mp3",
+      "duration": 10.608,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "62a3f5a6186f5c72354ea2db2eedd2c1a12cd1a1409b82bb5cfb89c0e825d06c",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x140713a40] mean_volume: -18.8 dB",
+        "[Parsed_volumedetect_0 @ 0x140713a40] max_volume: -2.9 dB"
+      ]
+    },
+    {
+      "file": "skills/classroom-lab/assets/lever-demo/audio/stage-1.mp3",
+      "duration": 7.512,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "8aa646894cd66adaa0a7f95137bf49da3931cf1bad674341823ed06801018583",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x133004d30] mean_volume: -18.5 dB",
+        "[Parsed_volumedetect_0 @ 0x133004d30] max_volume: -3.0 dB"
+      ]
+    },
+    {
+      "file": "skills/classroom-lab/assets/lever-demo/audio/stage-2.mp3",
+      "duration": 6.912,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "57f5f8fc2d47a3b408d8a65f7436cc58d32ea90219bdab1c0e6f961e6ab681b5",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x148004510] mean_volume: -18.9 dB",
+        "[Parsed_volumedetect_0 @ 0x148004510] max_volume: -2.9 dB"
+      ]
+    },
+    {
+      "file": "skills/classroom-lab/assets/lever-demo/audio/stage-3.mp3",
+      "duration": 7.248,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "9a9473cc66fccc2f302f26989a38dfdc34b9600d31050adca8631da4e5894a80",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x125705740] mean_volume: -18.6 dB",
+        "[Parsed_volumedetect_0 @ 0x125705740] max_volume: -2.4 dB"
+      ]
+    },
+    {
+      "file": "examples/pendulum/audio/stage-1.mp3",
+      "duration": 6.96,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "7127e3b437fd07d559c57f6d9baa04e7d4632431ee6fee5d1af83e2005d89480",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x12fc04110] mean_volume: -18.7 dB",
+        "[Parsed_volumedetect_0 @ 0x12fc04110] max_volume: -2.8 dB"
+      ]
+    },
+    {
+      "file": "examples/pendulum/audio/stage-2.mp3",
+      "duration": 7.896,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "86d2f2f2781937d6322bc6edd1b9829456744483fe5f9f870223779c406b10b7",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x143104a80] mean_volume: -18.6 dB",
+        "[Parsed_volumedetect_0 @ 0x143104a80] max_volume: -2.9 dB"
+      ]
+    },
+    {
+      "file": "examples/pendulum/audio/stage-3.mp3",
+      "duration": 7.68,
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "sha256": "1224bb8c65a4b8288c49e63ff5d9a44979c35f97c6bdf364ccd656a51fc45f02",
+      "decode": "passed",
+      "embeddedBytesMatch": true,
+      "levels": [
+        "[Parsed_volumedetect_0 @ 0x12970a0c0] mean_volume: -19.0 dB",
+        "[Parsed_volumedetect_0 @ 0x12970a0c0] max_volume: -3.7 dB"
+      ]
+    }
+  ],
+  "boundary": "Media and embedding checked; unchanged player not browser-retested this revision; human listening approval pending."
+}

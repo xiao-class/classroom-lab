@@ -1,0 +1,68 @@
+{
+  "title": "长一点，摆得快还是慢？",
+  "subtitle": "单摆实验 · 让两只摆同时出发，只改变一个条件",
+  "modelNote": "理想小角度单摆：摆角8°，忽略空气阻力和悬线质量，g=9.8 m/s²。摆长从悬点量到摆球质心。按T=2π√(L/g)计算；不用于大摆角，未模拟阻尼。",
+  "duration": 36,
+  "parameters": [
+    {
+      "key": "length",
+      "label": "右侧摆长",
+      "unit": "m",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "value": 0.5
+    },
+    {
+      "key": "mass",
+      "label": "右侧摆球质量",
+      "unit": "g",
+      "min": 50,
+      "max": 200,
+      "step": 50,
+      "value": 50
+    }
+  ],
+  "stages": [
+    {
+      "at": 0,
+      "title": "同时出发",
+      "question": "两只摆的长度相同，会一起往返吗？",
+      "explanation": "在相同重力场和小角度模型中，同样摆长对应同样周期。",
+      "narration": "先看两只一样长的摆。从相同角度同时放开，观察它们是不是一起往返。",
+      "audioFile": "audio/stage-1.mp3",
+      "audioDuration": 6.96
+    },
+    {
+      "at": 12,
+      "title": "只改摆长",
+      "values": {
+        "length": 1.0
+      },
+      "question": "把右侧摆长增加一倍，它每次往返会用多久？",
+      "explanation": "小角度模型中，周期与摆长的平方根成正比。摆长加倍，周期约变为原来的1.41倍。",
+      "narration": "现在只增加右侧摆长，其他条件不变。观察同一段时间里，哪只摆完成的往返更少。",
+      "audioFile": "audio/stage-2.mp3",
+      "audioDuration": 7.896
+    },
+    {
+      "at": 24,
+      "title": "再改质量",
+      "values": {
+        "mass": 200
+      },
+      "question": "保持摆长不变，换更重的摆球，会摆得更快吗？",
+      "explanation": "这个理想小角度模型的周期由摆长和重力加速度决定，与摆球质量无关。",
+      "narration": "接下来保持摆长不变，只换更重的摆球。比较前后的周期数字，再解释这个结果。",
+      "audioFile": "audio/stage-3.mp3",
+      "audioDuration": 7.68
+    }
+  ],
+  "sources": [
+    {
+      "label": "科学依据 · OpenStax 单摆",
+      "url": "https://openstax.org/books/college-physics/pages/16-4-the-simple-pendulum"
+    }
+  ],
+  "narrationVoice": "zh-CN-XiaoxiaoNeural"
+}

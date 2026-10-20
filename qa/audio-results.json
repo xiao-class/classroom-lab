@@ -1,0 +1,50 @@
+[
+  {
+    "name": "lever",
+    "passed": true,
+    "signal": {
+      "time": 0.6765,
+      "paused": false,
+      "energy": 0.0031336566535179397,
+      "visual": 0.666668
+    },
+    "pause": true,
+    "stageChange": true,
+    "mute": true,
+    "reset": true,
+    "customParameterStopsStaleNarration": true,
+    "seek": true
+  },
+  {
+    "name": "pendulum",
+    "passed": true,
+    "signal": {
+      "time": 0.687103,
+      "paused": false,
+      "energy": 0.0020897276567910946,
+      "visual": 0.666668
+    },
+    "pause": true,
+    "stageChange": true,
+    "mute": true,
+    "reset": true,
+    "customParameterStopsStaleNarration": true,
+    "seek": true
+  },
+  {
+    "name": "refraction",
+    "passed": true,
+    "signal": {
+      "time": 0.691555,
+      "paused": false,
+      "energy": 0.005558720706989793,
+      "visual": 0.6667680000000001
+    },
+    "pause": true,
+    "stageChange": true,
+    "mute": true,
+    "reset": true,
+    "customParameterStopsStaleNarration": true,
+    "seek": true
+  }
+]

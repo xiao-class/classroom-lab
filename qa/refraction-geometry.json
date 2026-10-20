@@ -1,0 +1,35 @@
+{
+  "geometries": [
+    {
+      "input": 0,
+      "expected": 0,
+      "angle": 0,
+      "label": "折射角 r = 0.0°"
+    },
+    {
+      "input": 30,
+      "expected": 22.0824,
+      "angle": 22.08241319447225,
+      "label": "折射角 r = 22.1°"
+    },
+    {
+      "input": 60,
+      "expected": 40.6281,
+      "angle": 40.62813065148207,
+      "label": "折射角 r = 40.6°"
+    },
+    {
+      "input": 75,
+      "expected": 46.5738,
+      "angle": 46.57376779045525,
+      "label": "折射角 r = 46.6°"
+    }
+  ],
+  "scrolling": {
+    "scrollLeft": 0,
+    "scrollWidth": 364,
+    "clientWidth": 364
+  },
+  "fullscreen": true,
+  "downloadName": "课堂讲解稿.txt"
+}

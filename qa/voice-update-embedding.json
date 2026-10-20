@@ -1,0 +1,23 @@
+[
+  {
+    "lesson": "lever",
+    "duration": 36,
+    "clips": 3,
+    "embeddedBytesMatch": true,
+    "minimumObservationPauseSeconds": 1
+  },
+  {
+    "lesson": "pendulum",
+    "duration": 36,
+    "clips": 3,
+    "embeddedBytesMatch": true,
+    "minimumObservationPauseSeconds": 1
+  },
+  {
+    "lesson": "refraction",
+    "duration": 49,
+    "clips": 4,
+    "embeddedBytesMatch": true,
+    "minimumObservationPauseSeconds": 1
+  }
+]

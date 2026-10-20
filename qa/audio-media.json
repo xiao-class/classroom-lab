@@ -1,0 +1,152 @@
+[
+  {
+    "path": "examples/pendulum/audio/stage-1.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "5.940292"
+    }
+  },
+  {
+    "path": "examples/pendulum/audio/stage-2.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "6.996792"
+    }
+  },
+  {
+    "path": "examples/pendulum/audio/stage-3.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "6.626667"
+    }
+  },
+  {
+    "path": "examples/refraction/audio/stage-1.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "7.441958"
+    }
+  },
+  {
+    "path": "examples/refraction/audio/stage-2.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "5.893833"
+    }
+  },
+  {
+    "path": "examples/refraction/audio/stage-3.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "8.238625"
+    }
+  },
+  {
+    "path": "examples/refraction/audio/stage-4.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "8.869167"
+    }
+  },
+  {
+    "path": "skills/classroom-lab/assets/lever-demo/audio/stage-1.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "6.547167"
+    }
+  },
+  {
+    "path": "skills/classroom-lab/assets/lever-demo/audio/stage-2.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "6.021542"
+    }
+  },
+  {
+    "path": "skills/classroom-lab/assets/lever-demo/audio/stage-3.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "24000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "6.043000"
+    }
+  }
+]
