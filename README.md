@@ -10,41 +10,33 @@
 
 </div>
 
-![课堂实验动画示例](qa/lever-desktop.png)
+**[▶ 打开视频介绍首页](https://xiao-class.github.io/classroom-lab/)** · [观看15秒三维概念开场](https://xiao-class.github.io/classroom-lab/media/intro.mp4)
+
+首页全部使用视频播放器：开场展示视觉方向，五支教学成片可直接播放、下载。
 
 > “做一个杠杆平衡的实验动画，让学生先猜，再移动砝码验证。”
 >
 > AI 制作实验画面和讲解，默认交付 MP4。老师下载后插入 PPT，即可上课。
 
-## 0.5.0 预览：默认交付 MP4
+## 默认交付 MP4
 
 默认输出 16:9、1080p、30fps、H.264/AAC 视频，沿用晓晓讲解。教师不用录屏、转格式或操作代码；渲染工具由 AI 助手准备。当前内置导出器支持 SVG 场景，Canvas/三维需使用其他实际可用的渲染路径，不能静默降为平面。
 
 [下载化学实验 MP4：氯化钠溶解（52 秒）](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4) · [查看视频导出说明](skills/classroom-lab/references/video-export.md)
 
-## 物理、化学、生物互动预览
+## 直接看视频
 
-互动预览保留三维舞台，并增加化学与生物的制作规范及有声案例。老师仍只需说要讲什么；AI 按题目选择器材、微观粒子、细胞结构或过程动画。
+所有教学视频都带晓晓中文讲解，下载后可插入PPT。开场是独立制作的无声三维概念片，不代表每个实验自动获得相同三维效果。
 
-| 学科 | 在线案例 | 表现方式 |
+| 学科 | 视频 | 时长 |
 |---|---|---|
-| 物理 | [三维杠杆](https://xiao-class.github.io/classroom-lab/examples/lever-3d/) | 器材、材质与镜头入场 |
-| 化学 | [氯化钠溶解](https://xiao-class.github.io/classroom-lab/examples/dissolution/) | 晶格、离子分散与水合放大 |
-| 生物 | [有丝分裂](https://xiao-class.github.io/classroom-lab/examples/mitosis/) | 染色体分离、核膜重建与子细胞形成 |
+| 物理 | [▶ 杠杆平衡](https://xiao-class.github.io/classroom-lab/examples/lever/animation.mp4) | 36秒 |
+| 物理 | [▶ 单摆的周期](https://xiao-class.github.io/classroom-lab/examples/pendulum/animation.mp4) | 36秒 |
+| 物理 | [▶ 光的折射](https://xiao-class.github.io/classroom-lab/examples/refraction/animation.mp4) | 49秒 |
+| 化学 | [▶ 氯化钠溶解](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4) | 52秒 |
+| 生物 | [▶ 动物细胞有丝分裂](https://xiao-class.github.io/classroom-lab/examples/mitosis/animation.mp4) | 56秒 |
 
-新增两例为SVG空间层次动画，含晓晓讲解、暂停、重播和分步观察；无需CDN。已核对模型、静态场景和音频文件；浏览器播放/交互及完整听审待验。三维杠杆仍未完成实际WebGL绘制核验。下面三个基础案例保留原有功能。
-
-## 先看效果
-
-**以下三个基础示例是带讲解的互动网页。** 点“播放演示”开始；也可以暂停、分步查看、拖动滑块，再显示解释。
-
-| 杠杆平衡 | 单摆的周期 | 光的折射 |
-| :---: | :---: | :---: |
-| [![杠杆平衡](qa/lever-desktop.png)](https://xiao-class.github.io/classroom-lab/examples/lever/) | [![单摆](qa/pendulum-desktop.png)](https://xiao-class.github.io/classroom-lab/examples/pendulum/) | [![光的折射](qa/refraction-desktop.png)](https://xiao-class.github.io/classroom-lab/examples/refraction/) |
-| 改砝码、移距离，观察平衡条件 | 分别改变摆长和质量，进行对照 | 改变入射角，观察折射方向 |
-| [打开演示 →](https://xiao-class.github.io/classroom-lab/examples/lever/) | [打开演示 →](https://xiao-class.github.io/classroom-lab/examples/pendulum/) | [打开演示 →](https://xiao-class.github.io/classroom-lab/examples/refraction/) |
-
-也可以[下载整个项目](https://github.com/xiao-class/classroom-lab/archive/refs/heads/main.zip)，解压后打开 `index.html`，离线播放。GitHub 仓库里的 HTML 文件页面显示源码；请使用上面的演示链接，或下载后打开。
+直接访问[介绍首页](https://xiao-class.github.io/classroom-lab/)即可在页面内播放。GitHub文件页面可能显示文件信息，表格链接均指向实际MP4。需要调参数时，可以要求AI额外提供互动网页；已有HTML源文件仍保留在仓库中。
 
 ## 安装 Skill
 
@@ -125,7 +117,7 @@ Skill 位于 skills/classroom-lab 目录。
 
 **只能做示例里的实验吗？**
 
-三个基础物理案例已完成浏览器验证；新增三个预览案例的验证范围见上文。Skill 会根据新实验编写对应模型，并核对科学关系；不保证所有学科、所有题目都能一次生成正确结果。
+五支视频只是例子。三个基础物理网页曾完成浏览器验证，视频与新增案例的实际验证范围见验证说明。Skill 会根据新实验编写对应模型，并核对科学关系；不保证所有学科、所有题目都能一次生成正确结果。
 
 **能直接放进 PPT 或导出视频吗？**  
 默认交付 MP4，可以作为视频插入 PPT。推荐使用 H.264 视频和 AAC 音频，见 [微软格式说明](https://support.microsoft.com/en-us/powerpoint/video-and-audio-file-formats-supported-in-powerpoint)。MP4不保留滑块交互，也不是可编辑的PPT图形；需要互动时另附HTML。实际PPT/WPS插入尚未实测。
@@ -135,7 +127,7 @@ Skill 位于 skills/classroom-lab 目录。
 
 ## 验证到哪里了
 
-52秒溶盐MP4已核对1080p/30fps、H.264/AAC、全文件解码、音轨非静音及最终视频关键帧。导出器另有短片集成测试，核对画面对象、阶段音频起点及失败时保留旧文件。未完成完整听审、正常速度回看及PPT/WPS实际插入。
+五支教学MP4均为1080p/30fps、H.264/AAC，完成全文件解码及最终视频关键帧检查。导出器另有短片集成测试，核对画面对象、阶段音频起点及失败时保留旧文件。未完成完整听审、正常速度回看及PPT/WPS实际插入。
 
 已验证杠杆、单摆和折射三个物理案例，包括模型计算、主要交互、手机尺寸布局、离线资源和讲解播放。最新音频也完成了解码、时长和内嵌检查。
 

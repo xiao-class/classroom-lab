@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "case": "lever",
+      "duration": 36.0,
+      "bytes": 1042236,
+      "video": "h264",
+      "audio": "aac",
+      "fullDecode": "passed during export",
+      "visualReview": "6 frames sampled from final MP4 inspected; labels, model geometry and subtitles visible",
+      "listeningReview": "not performed"
+    },
+    {
+      "case": "pendulum",
+      "duration": 36.0,
+      "bytes": 1663916,
+      "video": "h264",
+      "audio": "aac",
+      "fullDecode": "passed during export",
+      "visualReview": "6 frames sampled from final MP4 inspected; labels, model geometry and subtitles visible",
+      "listeningReview": "not performed"
+    },
+    {
+      "case": "refraction",
+      "duration": 49.0,
+      "bytes": 1548985,
+      "video": "h264",
+      "audio": "aac",
+      "fullDecode": "passed during export",
+      "visualReview": "6 frames sampled from final MP4 inspected; labels, model geometry and subtitles visible",
+      "listeningReview": "not performed"
+    },
+    {
+      "case": "dissolution",
+      "duration": 52.0,
+      "bytes": 4548164,
+      "video": "h264",
+      "audio": "aac",
+      "fullDecode": "passed during export",
+      "visualReview": "6 frames sampled from final MP4 inspected; labels, model geometry and subtitles visible",
+      "listeningReview": "not performed"
+    },
+    {
+      "case": "mitosis",
+      "duration": 56.0,
+      "bytes": 3205658,
+      "video": "h264",
+      "audio": "aac",
+      "fullDecode": "passed during export",
+      "visualReview": "6 frames sampled from final MP4 inspected; labels, model geometry and subtitles visible",
+      "listeningReview": "not performed"
+    }
+  ],
+  "intro": "15-second existing silent 3D concept film; not generated scientific simulation",
+  "browser": "pending",
+  "exporterTests": "3 integration tests passed",
+  "introSource": "Existing 15-second motion concept opener; H.264/yuv420p web copy"
+}

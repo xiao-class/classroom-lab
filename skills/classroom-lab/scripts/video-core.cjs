@@ -47,15 +47,19 @@ function makeScene(code) {
 function frameSVG(lesson, render, time, {width=1920, height=1080, fontFamily='sans-serif'}={}) {
   const state = stateAt(lesson, time), stage = lesson.stages[state.stageIndex];
   const scene = render(state), caption = captionAt(stage, state.localTime);
+  const light = lesson.presentation !== 'cinematic';
+  const bg = light ? '#f6f4ed' : '#07131e', ink = light ? '#173b40' : '#eff7fc';
+  const secondary = light ? '#51676b' : '#a6c1d4', accent = light ? '#087f8c' : '#8de1d5';
   const titleSize = Math.min(50, 1600 / Math.max(1, Array.from(lesson.title).length));
   const captionSize = Math.min(42, 1640 / Math.max(1, Array.from(caption).length));
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 1920 1080" font-family="${escape(fontFamily)}">
-<rect width="1920" height="1080" fill="#07131e"/>
-<text x="120" y="80" fill="#eff7fc" font-size="${titleSize}" font-weight="700">${escape(lesson.title)}</text>
-<text x="120" y="128" fill="#a6c1d4" font-size="26">${escape(lesson.subtitle)}</text>
-<text x="1800" y="128" text-anchor="end" fill="#8de1d5" font-size="26">${state.stageIndex+1} / ${lesson.stages.length} · ${escape(stage.title)}</text>
-<svg x="240" y="164" width="1440" height="750" viewBox="0 0 960 500" overflow="hidden">${scene}</svg>
-<text x="960" y="992" text-anchor="middle" fill="#f2f7fa" font-size="${captionSize}" font-weight="600">${escape(caption)}</text>
+<rect width="1920" height="1080" fill="${bg}"/>
+<text x="120" y="80" fill="${ink}" font-size="${titleSize}" font-weight="700">${escape(lesson.title)}</text>
+<text x="120" y="128" fill="${secondary}" font-size="26">${escape(lesson.subtitle)}</text>
+<text x="1800" y="128" text-anchor="end" fill="${accent}" font-size="26">${state.stageIndex+1} / ${lesson.stages.length} · ${escape(stage.title)}</text>
+<svg x="240" y="164" width="1440" height="750" viewBox="0 0 960 500" overflow="hidden"><rect width="960" height="500" fill="${bg}"/>${scene}</svg>
+<text x="960" y="992" text-anchor="middle" fill="${ink}" font-size="${captionSize}" font-weight="600">${escape(caption)}</text>
+<text x="1800" y="1030" text-anchor="end" fill="${secondary}" font-size="18">教学模型 · 运动与尺度为示意</text>
 <rect x="120" y="1044" width="1680" height="3" fill="#263c4d"/>
 <rect x="120" y="1044" width="${1680*time/lesson.duration}" height="3" fill="#72d6c6"/>
 </svg>`;
