@@ -1,0 +1,20 @@
+{
+  "duration": 52,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 1560,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "pixelFormat": "yuv420p",
+  "fullDecode": "passed",
+  "renderer": "SVG/resvg offline, no browser",
+  "subtitleTiming": "phrase-length proportional; not forced alignment",
+  "visualReview": "final MP4 frames at 0,13,25,28,42,51 seconds inspected; SVG casing and superscript glyphs corrected",
+  "listeningReview": "pending",
+  "powerPointInsertion": "not tested",
+  "integrationTests": "3 passed: cumulative seek, SVG preservation/3D rejection, actual MP4 objects and stage audio timing, missing voice/overwrite preservation",
+  "normalSpeedReview": "not performed",
+  "meanVolumeDB": -23.8,
+  "maxVolumeDB": -5.5
+}

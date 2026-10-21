@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "description": "Optional agent-side dependencies for SVG-to-MP4 export",
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "linkedom": "0.18.12"
+  }
+}
