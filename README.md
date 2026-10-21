@@ -10,9 +10,11 @@
 
 </div>
 
-**[▶ 打开视频介绍首页](https://xiao-class.github.io/classroom-lab/)** · [观看15秒三维概念开场](https://xiao-class.github.io/classroom-lab/media/intro.mp4)
+### 15 秒，看见实验的另一种样子
 
-首页全部使用视频播放器：开场展示视觉方向，五支教学成片可直接播放、下载。
+https://github.com/user-attachments/assets/82409a41-3d20-4d40-a0ae-f5a6fd7a3666
+
+三维视觉概念开场 · 无声。点击播放器即可在本页观看，也可[下载宣传片](https://xiao-class.github.io/classroom-lab/media/intro.mp4)。下方是带中文讲解的教学样片。
 
 > “做一个杠杆平衡的实验动画，让学生先猜，再移动砝码验证。”
 >
@@ -28,15 +30,54 @@
 
 所有教学视频都带晓晓中文讲解，下载后可插入PPT。开场是独立制作的无声三维概念片，不代表每个实验自动获得相同三维效果。
 
-| 学科 | 视频 | 时长 |
-|---|---|---|
-| 物理 | [▶ 杠杆平衡](https://xiao-class.github.io/classroom-lab/examples/lever/animation.mp4) | 36秒 |
-| 物理 | [▶ 单摆的周期](https://xiao-class.github.io/classroom-lab/examples/pendulum/animation.mp4) | 36秒 |
-| 物理 | [▶ 光的折射](https://xiao-class.github.io/classroom-lab/examples/refraction/animation.mp4) | 49秒 |
-| 化学 | [▶ 氯化钠溶解](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4) | 52秒 |
-| 生物 | [▶ 动物细胞有丝分裂](https://xiao-class.github.io/classroom-lab/examples/mitosis/animation.mp4) | 56秒 |
+### 物理 · 杠杆平衡
 
-直接访问[介绍首页](https://xiao-class.github.io/classroom-lab/)即可在页面内播放。GitHub文件页面可能显示文件信息，表格链接均指向实际MP4。需要调参数时，可以要求AI额外提供互动网页；已有HTML源文件仍保留在仓库中。
+36 秒 · 晓晓讲解 · 当前为二维教学样片
+
+https://github.com/user-attachments/assets/c4709cb7-4115-4cf5-904f-f080af59d62e
+
+[下载 MP4](https://xiao-class.github.io/classroom-lab/examples/lever/animation.mp4)
+
+### 物理 · 单摆的周期
+
+36 秒 · 晓晓讲解 · 当前为二维教学样片
+
+https://github.com/user-attachments/assets/d19eb4d8-37b2-4bff-b1a2-bebb89a7b19f
+
+[下载 MP4](https://xiao-class.github.io/classroom-lab/examples/pendulum/animation.mp4)
+
+### 物理 · 光的折射
+
+49 秒 · 晓晓讲解 · 当前为二维教学样片
+
+https://github.com/user-attachments/assets/9ef698e5-9f33-4dd3-8674-6c8572bc497b
+
+[下载 MP4](https://xiao-class.github.io/classroom-lab/examples/refraction/animation.mp4)
+
+### 化学 · 氯化钠溶解
+
+52 秒 · 晓晓讲解 · 离子分散的微观示意
+
+https://github.com/user-attachments/assets/3c51898f-438e-4051-893a-ed45f624c897
+
+[下载 MP4](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4)
+
+### 生物 · 动物细胞有丝分裂
+
+56 秒 · 晓晓讲解 · 染色体分离的过程示意
+
+https://github.com/user-attachments/assets/859226be-6269-4679-9131-54f5f6138b8c
+
+[下载 MP4](https://xiao-class.github.io/classroom-lab/examples/mitosis/animation.mp4)
+
+播放器需要点击播放。也可以打开[视频展示首页](https://xiao-class.github.io/classroom-lab/)集中观看、下载。
+
+<details>
+<summary>三维实验做到哪里了？</summary>
+
+宣传开场使用真实三维模型。三个物理教学 MP4 目前仍由二维场景导出，尚未升级成与开场一致的三维成片。[三维杠杆互动原型](https://xiao-class.github.io/classroom-lab/examples/lever-3d/)已经存在，本次在公开网页实际看到三维渲染并验证了播放，但尚未完成三维 MP4 的导出与验证。三维成片完成前，不把二维样片标成三维。
+
+</details>
 
 ## 安装 Skill
 
