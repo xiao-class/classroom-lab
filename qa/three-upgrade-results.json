@@ -1,0 +1,25 @@
+{
+  "version": "0.3.0-local-preview",
+  "date": "2026-10-21",
+  "skill_structure": "passed",
+  "builder_tests": 7,
+  "prior_model_cases": 119,
+  "three_geometry_parameter_cases": 64,
+  "other_checks": [
+    "deterministic positioning",
+    "prediction hold",
+    "settled camera",
+    "interpolated geometry and metric agreement",
+    "fallback API without WebGL",
+    "HTML script syntax",
+    "embedded three narration clips",
+    "local library bundling",
+    "manual parameters immediately applied without preset transition"
+  ],
+  "installed_files": 28,
+  "installed_bytes_match": true,
+  "single_html_bytes": 1010460,
+  "browser_visual_interaction": "not tested; file protocol blocked by browser URL security policy; no workaround attempted",
+  "webgl_actual_draw": "not tested",
+  "publicationAtValidation": "not pushed; GitHub remains 0.2.2"
+}

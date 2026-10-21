@@ -1,4 +1,4 @@
 interface:
   display_name: "课堂实验动画"
-  short_description: "说出实验名称，生成可播放、可暂停、可修改的课堂实验动画与讲解提示"
+  short_description: "一句话制作物理、化学、生物的课堂实验与过程动画，附普通话讲解和分步观察"
   default_prompt: "用 $classroom-lab 做一个杠杆平衡的课堂实验动画。"

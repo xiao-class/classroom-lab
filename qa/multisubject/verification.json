@@ -1,0 +1,16 @@
+{
+  "version": "0.4.0-local-preview",
+  "date": "2026-10-21",
+  "installedFiles": 44,
+  "sourceInstalledByteMatch": true,
+  "zipCRCAndBytes": "passed",
+  "skillReferences": "all local targets exist",
+  "backup": "local installation backup created (not distributed)",
+  "zip": "classroom-lab-skill-v0.4.0-preview.zip",
+  "models": "56 stage/time samples passed",
+  "staticVisualReview": "10 offline SVG frames; corrected chromosome spacing/nuclear envelope and continuous decondensation",
+  "audio": "8 Xiaoxiao +5% clips, full decode/non-silence/duration-fit; embedded bytes match",
+  "browser": "not tested; existing file URL policy rejection respected",
+  "listeningReview": "not performed",
+  "publicationAtValidation": "not pushed; remote remains 0.2.2"
+}

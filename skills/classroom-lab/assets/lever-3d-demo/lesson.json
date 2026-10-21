@@ -1,0 +1,75 @@
+{
+  "title": "让平衡，在眼前发生。",
+  "subtitle": "三维杠杆实验 · 移动砝码，观察力与距离",
+  "modelNote": "理想轻杆，忽略摩擦。两侧重力竖直，g取9.8 m/s²；显示水平参考力矩。倾斜角和运动速度只示意转动方向，不代表真实动力学。 开场仅改变镜头；预测阶段保留8.5秒再显示运动结果。",
+  "duration": 36,
+  "parameters": [
+    {
+      "key": "leftMass",
+      "label": "左侧砝码",
+      "unit": "g",
+      "min": 50,
+      "max": 200,
+      "step": 50,
+      "value": 100
+    },
+    {
+      "key": "rightMass",
+      "label": "右侧砝码",
+      "unit": "g",
+      "min": 50,
+      "max": 200,
+      "step": 50,
+      "value": 50
+    },
+    {
+      "key": "distance",
+      "label": "右侧距支点",
+      "unit": "cm",
+      "min": 10,
+      "max": 40,
+      "step": 10,
+      "value": 20
+    }
+  ],
+  "stages": [
+    {
+      "at": 0,
+      "title": "先预测",
+      "question": "距离相同时，两侧砝码不同，哪边会下降？",
+      "explanation": "同样的距离，重力较大的一侧产生更大的力矩。",
+      "narration": "左边一百克，右边五十克，距离支点都是二十厘米。先猜一猜，哪一边会下降？",
+      "audioFile": "audio/stage-1.mp3",
+      "audioDuration": 7.512
+    },
+    {
+      "at": 12,
+      "title": "移远一点",
+      "values": {
+        "distance": 40
+      },
+      "question": "只把右侧砝码移远，结果会发生什么变化？",
+      "explanation": "力矩由力与垂直力臂共同决定；较小的力可以通过较长的力臂补偿。",
+      "narration": "现在保持砝码不变，把右侧距离改成四十厘米，观察它能不能重新平衡。",
+      "audioFile": "audio/stage-2.mp3",
+      "audioDuration": 6.912
+    },
+    {
+      "at": 24,
+      "title": "动手验证",
+      "question": "换一组砝码，你还能找到平衡的位置吗？",
+      "explanation": "两侧力矩相等时平衡。若可调范围内找不到，检查需要的距离是否超出了范围。",
+      "narration": "试着换一组砝码，再调整右侧距离。用力和力臂的关系，解释你找到的结果。",
+      "audioFile": "audio/stage-3.mp3",
+      "audioDuration": 7.248
+    }
+  ],
+  "sources": [
+    {
+      "label": "科学依据 · OpenStax 静力平衡",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/12-2-examples-of-static-equilibrium"
+    }
+  ],
+  "narrationVoice": "zh-CN-XiaoxiaoNeural",
+  "presentation": "cinematic"
+}

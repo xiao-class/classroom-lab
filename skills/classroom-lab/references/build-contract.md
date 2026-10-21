@@ -2,7 +2,7 @@
 
 仅供生成动画的代理读取。老师只说实验要求，不接触这些文件。
 
-模板是可选的无依赖播放壳；实验模型与绘制仍由代理按题目实现。不要将内置示例当成支持题目的白名单。
+模板是可选的播放壳；实验模型与绘制仍由代理按题目实现。不要将内置示例当成支持题目的白名单。
 
 ## 文件
 
@@ -44,7 +44,7 @@ python3 /实际Skill路径/scripts/build.py --lesson /输出目录/lesson.json -
 
 ## scene.js
 
-提供一个普通脚本函数，不使用import、网络、定时器或依赖包：
+提供一个普通脚本函数，不使用import、网络或独立计时器；本地库可由构建器内嵌为全局变量：
 
 ```js
 function createExperiment(svg) {
@@ -79,3 +79,19 @@ SVG坐标为 `0 0 960 500`。主要标注至少约22个SVG单位，避免小字�
 - `checks`：模型检查结果。
 
 浏览器实际检查文件打开/离线、控件、可读性和科学对应关系。纯脚本断言不能替代画面。
+
+## 三维场景与本地库
+
+当题目适合三维或用户要求视频开头那种效果时，见 [视觉与动效](visual-motion.md)。`lesson.json` 可用 `"presentation":"cinematic"` 启用深色投屏外壳；它不是题目或配色限制。
+
+构建时可以重复 `--library /本地/浏览器普通脚本.js`，库会内联在 scene.js 前，不产生外网请求。仅接受已检查来源的本地浏览器脚本，不传 ES module 源文件。随 Skill 提供的 `assets/three-stage/runtime.min.js` 已打包为 `Lab3D` 全局对象，带 Three.js 与基础舞台。
+
+```sh
+python3 /实际Skill路径/scripts/build.py --lesson /输出目录/lesson.json --scene /输出目录/scene.js --library /实际Skill路径/assets/three-stage/runtime.min.js --out /输出目录/index.html
+```
+
+仍保留 createExperiment(svg) 接口。场景可通过 `Lab3D.createStage(svg)` 在 SVG 前创建 Canvas；WebGL 不可用时使用同一模型的 SVG 兼容视图。render 仍接收原时间、参数、阶段、revealed，返回统一指标与解释。不要创建独立 requestAnimationFrame 循环；依赖播放器时钟，暂停和重播才能同步。
+
+新三维例子只需作为结构起点，不要让量筒、折射或摆动都长成杠杆。运行库源码、固定依赖版本及 MIT 许可位于 three-stage；常规生成直接使用已打包文件，不需要 npm 安装。
+
+`render` 另有 `manualParameters` 布尔值：用户拖动参数后为true。此时直接显示滑块当前值，不从预设旧值重新过渡；阶段切换和重播会清除该标记。

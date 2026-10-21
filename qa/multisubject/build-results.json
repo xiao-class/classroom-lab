@@ -1,0 +1,20 @@
+[
+  {
+    "case": "dissolution",
+    "duration": 52,
+    "bytes": 373003,
+    "embedded_audio_matches": true,
+    "inline_script_syntax": "passed",
+    "external_script_style_tags": 0,
+    "installedRebuildMatches": true
+  },
+  {
+    "case": "mitosis",
+    "duration": 56,
+    "bytes": 410483,
+    "embedded_audio_matches": true,
+    "inline_script_syntax": "passed",
+    "external_script_style_tags": 0,
+    "installedRebuildMatches": true
+  }
+]

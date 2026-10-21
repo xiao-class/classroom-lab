@@ -16,6 +16,18 @@
 >
 > AI 制作实验画面、讲解和交互，交付一个网页。打开，点播放，就能演示。
 
+## 0.4.0 预览：物理、化学、生物
+
+0.4.0 预览保留三维舞台，并增加化学与生物的制作规范及有声案例。老师仍只需说要讲什么；AI 按题目选择器材、微观粒子、细胞结构或过程动画。
+
+| 学科 | 在线案例 | 表现方式 |
+|---|---|---|
+| 物理 | [三维杠杆](https://xiao-class.github.io/classroom-lab/examples/lever-3d/) | 器材、材质与镜头入场 |
+| 化学 | [氯化钠溶解](https://xiao-class.github.io/classroom-lab/examples/dissolution/) | 晶格、离子分散与水合放大 |
+| 生物 | [有丝分裂](https://xiao-class.github.io/classroom-lab/examples/mitosis/) | 染色体分离、核膜重建与子细胞形成 |
+
+新增两例为SVG空间层次动画，含晓晓讲解、暂停、重播和分步观察；无需CDN。已核对模型、静态场景和音频文件；浏览器播放/交互及完整听审待验。三维杠杆仍未完成实际WebGL绘制核验。下面三个基础案例保留原有功能。
+
 ## 先看效果
 
 **无需安装，直接体验三个带讲解的示例。** 点“播放演示”开始；也可以暂停、分步查看、拖动滑块，再显示解释。
@@ -66,6 +78,10 @@ Skill 位于 skills/classroom-lab 目录。
 ```text
 演示光从空气进入水中的折射，给初二学生看。
 
+做一个氯化钠溶解的微观动画，让学生看清离子去哪里了。
+
+演示动物细胞的有丝分裂，突出染色体的分离。
+
 做一个浮力实验动画，让学生先猜，再看结果。
 
 做一个杠杆实验，先别显示答案，让学生移动砝码试一试。
@@ -100,8 +116,9 @@ Skill 位于 skills/classroom-lab 目录。
 **需要配音 Key、录音或部署声音模型吗？**  
 默认“晓晓”方案不需要。助手通过 [edge-tts](https://github.com/rany2/edge-tts) 在线生成讲解，准备所需依赖并嵌入网页。生成时需要联网，会将讲解文字发送到语音服务；生成后的网页可离线播放。在线服务可能因网络或服务变化不可用，助手应明确说明，不能把无声结果称为有声完成。
 
-**只能做这三个实验吗？**  
-这三个是已验证的示例。Skill 会根据新实验编写对应模型，并核对科学关系；不保证所有学科、所有题目都能一次生成正确结果。
+**只能做示例里的实验吗？**
+
+三个基础物理案例已完成浏览器验证；新增三个预览案例的验证范围见上文。Skill 会根据新实验编写对应模型，并核对科学关系；不保证所有学科、所有题目都能一次生成正确结果。
 
 **能直接放进 PPT 或导出视频吗？**  
 当前默认交付网页，没有一键 MP4 或原生可编辑 PPTX 导出。网页、视频和 PPTX 是不同格式，需要分别制作和验证。
@@ -122,13 +139,13 @@ Skill 位于 skills/classroom-lab 目录。
 
 ```text
 skills/classroom-lab/  可安装的完整 Skill
-examples/             三个实验示例
+examples/             三个基础案例与三个预览案例
 index.html            在线 / 本地演示入口
 tests/                开发者测试
 qa/                   验证记录与截图
 ```
 
-杠杆可修改源文件在 `skills/classroom-lab/assets/lever-demo/`；其余示例源文件在各自目录。Skill 工作说明见 [SKILL.md](skills/classroom-lab/SKILL.md)。
+基础杠杆与新增预览案例的源文件在 `skills/classroom-lab/assets/` 下对应的 `*-demo/` 目录；单摆、折射源文件在各自示例目录。Skill 工作说明见 [SKILL.md](skills/classroom-lab/SKILL.md)。
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py'

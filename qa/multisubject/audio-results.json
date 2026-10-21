@@ -1,0 +1,72 @@
+{
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+5%",
+  "fullDecode": "passed",
+  "segments": [
+    {
+      "lesson": "dissolution",
+      "stage": 1,
+      "duration": 8.496,
+      "available": 12,
+      "peak": 0.7290474772453308,
+      "sha256": "22f32c5ba100b677af60e5873b7e67a3c38cdfcd20f6f633d660a70c4c11b315"
+    },
+    {
+      "lesson": "dissolution",
+      "stage": 2,
+      "duration": 7.536,
+      "available": 14,
+      "peak": 0.7456908822059631,
+      "sha256": "076698935004102253e3583c4f323544f422181e34117cc7e158b93d5184368d"
+    },
+    {
+      "lesson": "dissolution",
+      "stage": 3,
+      "duration": 7.752,
+      "available": 14,
+      "peak": 0.7461706399917603,
+      "sha256": "4341912befec302d0fd075780bda1eba1aa64eadf7411e936f62cf0c6fa16fa1"
+    },
+    {
+      "lesson": "dissolution",
+      "stage": 4,
+      "duration": 8.496,
+      "available": 12,
+      "peak": 0.7025585770606995,
+      "sha256": "40c718061271cd160535c6e1c565072dbebb2f4af21cfd65a91823945321d349"
+    },
+    {
+      "lesson": "mitosis",
+      "stage": 1,
+      "duration": 9.024,
+      "available": 14,
+      "peak": 0.6959531307220459,
+      "sha256": "f308640dda9f6c75b310ee89e8c53d7ccc1cf3c6b4eeae524197078c867c2b79"
+    },
+    {
+      "lesson": "mitosis",
+      "stage": 2,
+      "duration": 8.76,
+      "available": 14,
+      "peak": 0.6859803199768066,
+      "sha256": "68df29460fc06fb142e3d681c3d7656a286d81636cd15c8ede031c4928026a86"
+    },
+    {
+      "lesson": "mitosis",
+      "stage": 3,
+      "duration": 8.76,
+      "available": 14,
+      "peak": 0.6892281174659729,
+      "sha256": "9c3a2f5803f404684bfaac503dbf3f00ea271302fa16b9d834e98e1bfaf73aab"
+    },
+    {
+      "lesson": "mitosis",
+      "stage": 4,
+      "duration": 9.216,
+      "available": 14,
+      "peak": 0.6838362812995911,
+      "sha256": "2b9ed7bb3554a0e04eac6a210e61358a5ad7298d357cef2aec0a00c3c6500a34"
+    }
+  ],
+  "listeningReview": "not performed"
+}

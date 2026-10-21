@@ -1,0 +1,53 @@
+{
+  "title": "一套遗传信息，如何分给两个细胞？",
+  "subtitle": "生物 · 动物细胞有丝分裂 · 2n＝4 简化示意",
+  "modelNote": "过程动画，从DNA复制已完成开始。前期/前中期合并示意，随后为中期、后期、末期及胞质分裂。球体大小和时间不按真实比例，未画所有细胞结构；仅统计核DNA。胞质缢裂为动物细胞方式，植物细胞形成细胞板。",
+  "presentation": "cinematic",
+  "duration": 56,
+  "parameters": [],
+  "stages": [
+    {
+      "at": 0,
+      "title": "分裂准备",
+      "question": "一个复制后的染色体，包含几条姐妹染色单体？",
+      "explanation": "两个姐妹染色单体连接，仍计为一条染色体。",
+      "narration": "这是一幅动物细胞示意图。开始前，DNA已经复制。每条染色体，含有两条姐妹染色单体。",
+      "audioFile": "audio/stage-1.mp3",
+      "audioDuration": 9.024
+    },
+    {
+      "at": 14,
+      "title": "中期排列",
+      "question": "染色体排列在哪里？",
+      "explanation": "复制后的染色体排列在赤道板附近。",
+      "narration": "接着看中期。四条复制后的染色体，排列在细胞中央。纺锤体的连接来自相对的两极。",
+      "audioFile": "audio/stage-2.mp3",
+      "audioDuration": 8.76
+    },
+    {
+      "at": 28,
+      "title": "后期分离",
+      "question": "分开后，染色体数量为什么暂时变了？",
+      "explanation": "每条分离后的染色单体成为一条染色体。",
+      "narration": "姐妹染色单体分开，各自成为一条染色体，移向两极。此时，细胞内暂时有八条染色体。",
+      "audioFile": "audio/stage-3.mp3",
+      "audioDuration": 8.76
+    },
+    {
+      "at": 42,
+      "title": "形成子细胞",
+      "question": "两个子细胞各获得多少条染色体？",
+      "explanation": "每个子细胞各有4条染色体、4个核DNA分子。",
+      "narration": "核膜重新形成，随后完成胞质分裂。两个子细胞，各有四条染色体。这里展示的是动物细胞。",
+      "audioFile": "audio/stage-4.mp3",
+      "audioDuration": 9.216
+    }
+  ],
+  "sources": [
+    {
+      "label": "科学依据 · OpenStax 细胞周期",
+      "url": "https://openstax.org/books/biology-2e/pages/10-2-the-cell-cycle"
+    }
+  ],
+  "narrationVoice": "zh-CN-XiaoxiaoNeural"
+}

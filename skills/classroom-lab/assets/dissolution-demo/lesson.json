@@ -1,0 +1,57 @@
+{
+  "title": "盐消失了，还是换了一种存在方式？",
+  "subtitle": "化学 · 氯化钠溶解的微观过程",
+  "modelNote": "只追踪10个Na⁺和10个Cl⁻；并非实际样品的总数。尺寸、颜色、轨迹与速度均为示意；右侧为局部放大。水合与分散在真实过程中相互伴随，此处为分步解释，不模拟饱和度或反应动力学。",
+  "presentation": "cinematic",
+  "duration": 52,
+  "parameters": [],
+  "stages": [
+    {
+      "at": 0,
+      "title": "先认粒子",
+      "question": "盐进入水里后，这些离子会不会消失？",
+      "explanation": "先观察晶体，再看分散。",
+      "narration": "盐放进水里，看起来不见了。里面的粒子真的消失了吗？先记住这些钠离子和氯离子。",
+      "audioFile": "audio/stage-1.mp3",
+      "audioDuration": 8.496
+    },
+    {
+      "at": 12,
+      "title": "看见分散",
+      "question": "从晶体到水中，粒子种类变了吗？",
+      "explanation": "离子从晶格中分散到水中，种类不变。",
+      "narration": "看，晶格中的离子逐渐分散到水中。它们没有消失，也没有变成中性的原子。",
+      "audioFile": "audio/stage-2.mp3",
+      "audioDuration": 7.536
+    },
+    {
+      "at": 26,
+      "title": "水合放大",
+      "question": "水分子的哪一端，更靠近正离子？",
+      "explanation": "水分子的氧端朝向正离子，氢端朝向负离子。",
+      "narration": "放大来看，水分子包围着离子。氧的一端朝向正离子，氢的一端朝向负离子。",
+      "audioFile": "audio/stage-3.mp3",
+      "audioDuration": 7.752
+    },
+    {
+      "at": 40,
+      "title": "核对守恒",
+      "question": "溶解前后，离子数量和总电荷变了吗？",
+      "explanation": "追踪的离子数量、种类和总电荷保持不变。",
+      "narration": "再数一数，追踪的离子数量没有变，总电荷仍是零。这里的颜色和运动，只用来帮助观察。",
+      "audioFile": "audio/stage-4.mp3",
+      "audioDuration": 8.496
+    }
+  ],
+  "sources": [
+    {
+      "label": "科学依据 · OpenStax 溶解过程",
+      "url": "https://openstax.org/books/chemistry-2e/pages/11-1-the-dissolution-process"
+    },
+    {
+      "label": "科学依据 · 美国化学会：水为什么能溶解盐",
+      "url": "https://www.acs.org/middleschoolchemistry/lessonplans/chapter5/lesson3.html"
+    }
+  ],
+  "narrationVoice": "zh-CN-XiaoxiaoNeural"
+}

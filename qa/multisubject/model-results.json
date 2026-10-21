@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "modelSamples": 56,
+  "staticFrames": 10,
+  "checks": [
+    "ion species/count/charge conserved",
+    "ions remain in viewport",
+    "DNA conserved across cytokinesis",
+    "stage-specific chromosome counting",
+    "seek determinism",
+    "finite SVG",
+    "water polarity orientation"
+  ],
+  "boundary": "SVG static frames only; no browser playback, UI interaction or full listening review"
+}

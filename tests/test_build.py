@@ -43,6 +43,17 @@ class BuilderTests(unittest.TestCase):
             self.assertEqual(result,out.read_text())
             builder.build(p/'lesson.json',p/'scene.js',out,force=True)
 
+    def test_library_is_inlined_before_scene(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);(p/'lesson.json').write_text(json.dumps(self.lesson))
+            (p/'scene.js').write_text('function createExperiment(svg){return window.LocalStage;}')
+            (p/'lib.js').write_text('window.LocalStage={render(){}};')
+            output=builder.build(p/'lesson.json',p/'scene.js',p/'index.html',libraries=[p/'lib.js']).read_text()
+            self.assertLess(output.index('window.LocalStage={'),output.index('function createExperiment'))
+            self.assertNotIn('<script src=',output)
+            (p/'lib.js').write_text('</script><script>alert(1)</script>')
+            with self.assertRaises(ValueError):builder.build(p/'lesson.json',p/'scene.js',p/'bad.html',libraries=[p/'lib.js'])
+
     def test_no_parameters_is_valid(self):
         self.lesson['parameters']=[]
         for s in self.lesson['stages']:s.pop('values',None)

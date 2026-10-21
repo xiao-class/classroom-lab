@@ -87,7 +87,7 @@ def validate(data):
     return data
 
 
-def build(lesson, scene, out, force=False):
+def build(lesson, scene, out, force=False, libraries=()):
     data = validate(json.loads(Path(lesson).read_text(encoding="utf-8")))
     for stage in data['stages']:
         if 'audioFile' in stage:
@@ -99,6 +99,9 @@ def build(lesson, scene, out, force=False):
             if not mime or source.stat().st_size > 10_000_000:
                 raise ValueError("unsupported or oversized audioFile")
             stage['audio'] = 'data:'+mime+';base64,'+base64.b64encode(source.read_bytes()).decode('ascii')
+    library_code = "\n".join(Path(p).read_text(encoding="utf-8") for p in libraries)
+    if re.search(r"</script", library_code, re.I):
+        raise ValueError("library must not contain a closing script tag")
     code = Path(scene).read_text(encoding="utf-8")
     if not re.search(r"\bfunction\s+createExperiment\s*\(", code):
         raise ValueError("scene must define function createExperiment(svg)")
@@ -106,7 +109,7 @@ def build(lesson, scene, out, force=False):
         raise ValueError("scene must not contain a closing script tag")
     payload = json.dumps(data, ensure_ascii=False).replace("&", "\\u0026").replace("<", "\\u003c").replace(">", "\\u003e")
     template = (Path(__file__).resolve().parent.parent / "assets/player.html").read_text(encoding="utf-8")
-    replacements = {"TITLE": html.escape(data["title"]), "LESSON_JSON": payload, "SCENE_JS": code}
+    replacements = {"TITLE": html.escape(data["title"]), "LESSON_JSON": payload, "SCENE_JS": library_code+"\n"+code if library_code else code}
     result = re.sub(r"@@(TITLE|LESSON_JSON|SCENE_JS)@@", lambda m: replacements[m[1]], template)
     out = Path(out)
     if out.exists() and not force:
@@ -132,9 +135,10 @@ def main():
     parser.add_argument("--scene", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--library", action="append", default=[], help="Local browser JS to inline; repeatable")
     args = parser.parse_args()
     try:
-        print(build(args.lesson, args.scene, args.out, args.force))
+        print(build(args.lesson, args.scene, args.out, args.force, args.library))
     except (ValueError, OSError) as exc:
         parser.exit(1, f"Build failed: {exc}\n")
 
