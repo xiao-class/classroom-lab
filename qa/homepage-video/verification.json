@@ -52,7 +52,79 @@
     }
   ],
   "intro": "15-second existing silent 3D concept film; not generated scientific simulation",
-  "browser": "pending",
+  "browser": {
+    "surface": "public HTTPS in-app browser",
+    "desktopViewport": [
+      1280,
+      720
+    ],
+    "mobileViewport": [
+      390,
+      844
+    ],
+    "horizontalOverflow": false,
+    "heroAutoplayMutedAndPause": "passed; readyState4 and advancing time, explicit pause",
+    "chemistryPlayback": "passed; 52s loaded, time advanced, no media error",
+    "pendulumPlaybackAndMutualExclusion": "passed; time advanced, chemistry paused",
+    "copyInstall": "success message observed",
+    "consoleErrors": [],
+    "fullListeningAndAllVideosNormalSpeed": "not performed",
+    "realPhoneAndPPT": "not tested",
+    "reducedMotion": "implemented; not emulated in browser"
+  },
   "exporterTests": "3 integration tests passed",
-  "introSource": "Existing 15-second motion concept opener; H.264/yuv420p web copy"
+  "introSource": "Existing 15-second motion concept opener; H.264/yuv420p web copy",
+  "online": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytesMatch": true
+    },
+    {
+      "file": "homepage.css",
+      "status": 200,
+      "bytesMatch": true
+    },
+    {
+      "file": "homepage.js",
+      "status": 200,
+      "bytesMatch": true
+    },
+    {
+      "file": "media/intro.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "sizeMatches": true
+    },
+    {
+      "file": "examples/lever/animation.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "sizeMatches": true
+    },
+    {
+      "file": "examples/pendulum/animation.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "sizeMatches": true
+    },
+    {
+      "file": "examples/refraction/animation.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "sizeMatches": true
+    },
+    {
+      "file": "examples/dissolution/animation.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "sizeMatches": true
+    },
+    {
+      "file": "examples/mitosis/animation.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "sizeMatches": true
+    }
+  ]
 }
