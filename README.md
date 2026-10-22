@@ -24,6 +24,8 @@ https://github.com/user-attachments/assets/82409a41-3d20-4d40-a0ae-f5a6fd7a3666
 
 默认输出 16:9、1080p、30fps、H.264/AAC 视频，沿用晓晓讲解。教师不用录屏、转格式或操作代码；渲染工具由 AI 助手准备。内置 SVG 导出器与 macOS 原生三维导出器，已制作杠杆、单摆、折射、氯化钠溶解和动物细胞有丝分裂五支真正的三维有声样片。
 
+新版导出默认更顺：每帧平均 4 个子帧形成真实运动模糊；换砝码、改角度等阶段变化连续完成，不在一帧内瞬移；字幕和结论换句时淡入淡出。规则见 [动效手感](skills/classroom-lab/references/motion-craft.md)。
+
 [下载化学实验 MP4：氯化钠溶解（52 秒）](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4) · [查看视频导出说明](skills/classroom-lab/references/video-export.md)
 
 ## 直接看视频
@@ -78,6 +80,8 @@ https://github.com/user-attachments/assets/ebfd676c-25c6-4815-883d-14bc3bc2bd7a
 五支教学样片现已全部使用真实三维几何渲染：物理器材与光路、化学晶格和水合、生物细胞剖开与缢裂。灯光、相机和对应教学模型共同驱动画面。讲解沿用晓晓，保留预测与观察停顿。三维画面和数值来自对应实验模型，宣传片仍是独立概念开场。
 
 Skill 已包含五个有声配方和[三维导出流程](skills/classroom-lab/references/native-3d-video.md)。内置三维后端目前在 macOS 上验证通过；其他系统需要可用的三维渲染后端，不能静默改成二维。已导出的 MP4 无需安装渲染工具。化学与生物属于三维过程示意，不冒称分子动力学或真实显微影像；水合代表粒子不额外计数，分裂前后核DNA保持守恒。
+
+顺滑度：`export_3d.py` 默认 `--motion-blur 4 --shutter 0.5`，即每帧 4 个子帧、180° 快门；字幕、结论、数值卡换句时淡变；开场推镜后保持极慢推进，不环绕。杠杆样片已用新版重新导出，其余四支仍是上一版导出。新题目可写成按时间定位的 Three.js/Canvas 页面，用 `scripts/render_web.mjs` 逐帧导出，不依赖 macOS。
 
 [三维杠杆互动原型](https://xiao-class.github.io/classroom-lab/examples/lever-3d/)作为额外网页演示保留，与新视频分别维护。
 
@@ -176,6 +180,8 @@ Skill 位于 skills/classroom-lab 目录。
 
 已验证杠杆、单摆和折射三个物理案例，包括模型计算、主要交互、手机尺寸布局、离线资源和讲解播放。最新音频也完成了解码、时长和内嵌检查。
 
+2026-10-23 顺滑度升级：新增逐帧“不跳变”测试，在旧版杠杆上于 24.00 秒失败，新版通过；24 项 Python 测试通过；杠杆样片用新版重新导出，完整解码通过。
+
 目前尚未进行真实教师课堂、全部浏览器和所有学科验证。各版本实际检查过什么、没有检查什么，见 [VALIDATION.md](VALIDATION.md)。
 
 发现问题时，可以[提交 Issue](https://github.com/xiao-class/classroom-lab/issues)，附上实验名称、原始要求、浏览器和复现方式。
@@ -199,7 +205,7 @@ node tests/models.cjs
 python3 skills/classroom-lab/scripts/build.py --lesson skills/classroom-lab/assets/lever-demo/lesson.json --scene skills/classroom-lab/assets/lever-demo/scene.js --out examples/lever/index.html --force
 ```
 
-HTML构建器只依赖 Python 标准库；SVG视频导出需要Node.js、FFmpeg、字体及scripts/package.json中的依赖。新增三维视频导出使用macOS Swift/SceneKit/Metal与FFmpeg，代理准备依赖，见 [MP4交付](skills/classroom-lab/references/video-export.md) 和 [三维制作](skills/classroom-lab/references/native-3d-video.md)。浏览器测试另外需要 Node.js、Playwright 和 Chromium：
+HTML构建器只依赖 Python 标准库；SVG视频导出需要Node.js、FFmpeg、字体及scripts/package.json中的依赖。Canvas/WebGL/Three.js 场景用 `scripts/render_web.mjs` 逐帧导出（需要 Chrome/Chromium 和 puppeteer-core），交付前可按 [成片评审](skills/classroom-lab/references/review-rubric.md) 让独立代理打分。新增三维视频导出使用macOS Swift/SceneKit/Metal与FFmpeg，代理准备依赖，见 [MP4交付](skills/classroom-lab/references/video-export.md) 和 [三维制作](skills/classroom-lab/references/native-3d-video.md)。浏览器测试另外需要 Node.js、Playwright 和 Chromium：
 
 ```sh
 npm install --no-save playwright
