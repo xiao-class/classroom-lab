@@ -1,8 +1,9 @@
 {
   "private": true,
-  "description": "Optional agent-side dependencies for SVG-to-MP4 export",
+  "description": "Optional agent-side dependencies for SVG-to-MP4 export and seekable Canvas/WebGL rendering",
   "dependencies": {
     "@resvg/resvg-js": "2.6.2",
-    "linkedom": "0.18.12"
+    "linkedom": "0.18.12",
+    "puppeteer-core": "25.14.0"
   }
 }

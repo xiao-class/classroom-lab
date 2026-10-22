@@ -179,10 +179,11 @@ final class Lab {
   let t=number(d,"time"), intro=sm(t,0,3.2)
   let end:SCNVector3=kind=="refraction" ? vec(0,0.3,16.1) : (kind=="pendulum" ? vec(1.0,2.0,17.8):vec(1.3,2.6,17.2))
   let life=kind=="dissolution" || kind=="mitosis"
-  camera.position=vec(7*(1-intro)+Double(end.x)*intro,4.5*(1-intro)+Double(end.y)*intro,12*(1-intro)+Double(end.z)*intro)
+  let drift=number(d,"drift")
+  camera.position=vec(7*(1-intro)+Double(end.x)*intro,4.5*(1-intro)+Double(end.y)*intro-0.25*drift,12*(1-intro)+Double(end.z)*intro-1.1*drift)
   camera.look(at:kind=="refraction" ? vec(0,-0.5,0):vec(0,-0.8,0),up:vec(0,1,0),localFront:vec(0,0,-1))
   if life{
-   camera.position=vec(4.0*(1-intro),2.8*(1-intro)+0.9*intro,14*(1-intro)+17.5*intro)
+   camera.position=vec(4.0*(1-intro),2.8*(1-intro)+0.9*intro-0.2*drift,14*(1-intro)+17.5*intro-1.0*drift)
    camera.look(at:vec(0,-0.35,0),up:vec(0,1,0),localFront:vec(0,0,-1));updateLife(d);return
   }
   if kind=="lever"{
@@ -209,13 +210,16 @@ final class Lab {
  }
  func project(_ p:SCNVector3)->NSPoint{let q=renderer.projectPoint(p);return NSPoint(x:CGFloat(q.x),y:1080-CGFloat(q.y))}
 }
-func text(_ s:String,_ x:CGFloat,_ y:CGFloat,_ size:CGFloat,_ c:UInt32=white,_ bold:Bool=false,_ width:CGFloat=1700,_ align:NSTextAlignment = .left){
+func text(_ s:String,_ x:CGFloat,_ y:CGFloat,_ size:CGFloat,_ c:UInt32=white,_ bold:Bool=false,_ width:CGFloat=1700,_ align:NSTextAlignment = .left,_ alpha:CGFloat=1){
+ if alpha<=0.001 {return}
  let style=NSMutableParagraphStyle();style.alignment=align;style.lineBreakMode = .byWordWrapping
  let font=NSFont(name:bold ? "PingFangSC-Semibold":"PingFangSC-Regular",size:size) ?? NSFont.systemFont(ofSize:size,weight:bold ? .semibold:.regular)
- (s as NSString).draw(in:NSRect(x:x,y:y,width:width,height:size*2.7),withAttributes:[.font:font,.foregroundColor:color(c),.paragraphStyle:style])
+ (s as NSString).draw(in:NSRect(x:x,y:y,width:width,height:size*2.7),withAttributes:[.font:font,.foregroundColor:color(c,alpha),.paragraphStyle:style])
 }
 func rounded(_ rect:NSRect,_ fill:UInt32,_ alpha:CGFloat=1){color(fill,alpha).setFill();NSBezierPath(roundedRect:rect,xRadius:16,yRadius:16).fill()}
 func overlay(_ im:NSImage,_ lab:Lab,_ d:[String:Any],_ title:String)->NSBitmapImageRep {
+ // Sentence changes cross-fade (alphas come from export_3d.py); missing keys mean fully visible.
+ func fa(_ k:String)->CGFloat {d[k+"Alpha"]==nil ? 1:CGFloat(number(d,k+"Alpha"))}
  let rep=NSBitmapImageRep(bitmapDataPlanes:nil,pixelsWide:1920,pixelsHigh:1080,bitsPerSample:8,samplesPerPixel:4,hasAlpha:true,isPlanar:false,colorSpaceName:.deviceRGB,bytesPerRow:1920*4,bitsPerPixel:32)!
  let ctx=NSGraphicsContext(bitmapImageRep:rep)!.cgContext;ctx.translateBy(x:0,y:1080);ctx.scaleBy(x:1,y:-1)
  NSGraphicsContext.saveGraphicsState();NSGraphicsContext.current=NSGraphicsContext(cgContext:ctx,flipped:true)
@@ -224,19 +228,19 @@ func overlay(_ im:NSImage,_ lab:Lab,_ d:[String:Any],_ title:String)->NSBitmapIm
  let discipline=lab.kind=="dissolution" ? "CHEMISTRY IN MOTION" : (lab.kind=="mitosis" ? "BIOLOGY IN MOTION":"PHYSICS IN MOTION")
  text("CLASSROOM LAB   /   "+discipline,64,33,18,teal,true)
  text(title,64,68,52,white,true)
- text(String(format:"%02d",Int(number(d,"stage"))+1)+" / "+(d["stageTitle"] as! String),1400,60,25,gold,true,450,.right)
+ text(String(format:"%02d",Int(number(d,"stage"))+1)+" / "+(d["stageTitle"] as! String),1400,60,25,gold,true,450,.right,fa("stageTitle"))
  text("三维教学模型",1500,102,21,0x8aa6b4,false,350,.right)
  let vals=[("leftValue","leftDetail",teal,CGFloat(64)),("rightValue","rightDetail",gold,CGFloat(1020))]
- for (key,detail,c,x) in vals{rounded(NSRect(x:x,y:748,width:836,height:122),0x0b1a25,0.92);text(d[key] as! String,x+26,760,34,c,true,780);text(d[detail] as! String,x+26,810,24,0xb2c7d0,false,780)}
- text(d["conclusion"] as! String,180,892,30,white,true,1560,.center)
+ for (key,detail,c,x) in vals{rounded(NSRect(x:x,y:748,width:836,height:122),0x0b1a25,0.92);text(d[key] as! String,x+26,760,34,c,true,780,.left,fa(key));text(d[detail] as! String,x+26,810,24,0xb2c7d0,false,780,.left,fa(detail))}
+ text(d["conclusion"] as! String,180,892,30,white,true,1560,.center,fa("conclusion"))
  rounded(NSRect(x:180,y:946,width:1560,height:66),0x07111a,0.95)
- text(d["subtitle"] as! String,205,958,32,white,false,1510,.center)
+ text(d["subtitle"] as! String,205,958,32,white,false,1510,.center,fa("subtitle"))
  if lab.kind=="dissolution" || lab.kind=="mitosis"{rounded(NSRect(x:44,y:1026,width:1832,height:35),0x07111a,0.95)}
  text(d["note"] as! String,64,1030,19,0x819ca9,false,1700)
  color(teal).setFill();NSRect(x:64,y:1066,width:1792*number(d,"progress"),height:3).fill()
  func tag(_ label:String,_ p:SCNVector3,_ c:UInt32,_ dx:CGFloat=0,_ dy:CGFloat=0){let q=lab.project(p);text(label,q.x-145+dx,q.y+dy,26,c,true,290,.center)}
  if lab.kind=="lever"{
-  tag(String(format:"%0.0f g",number(d,"leftMass")),lab.leftWeight.position,teal,-25,145);tag(String(format:"%0.0f g",number(d,"rightMass")),lab.rightWeight.position,gold,25,145)
+  tag(String(format:"%0.0f g",number(d,"leftMassShown")),lab.leftWeight.position,teal,-25,145);tag(String(format:"%0.0f g",number(d,"rightMassShown")),lab.rightWeight.position,gold,25,145)
   tag("20 cm",vec(-1,0.72,0.2),teal,0,-38);tag(String(format:"%0.0f cm",number(d,"distance")),vec(number(d,"distance")/20,0.72,0.2),gold,0,-38)
  }else if lab.kind=="pendulum"{
   tag("0.50 m",vec(-2.65,1.6,0),teal,-30);tag(String(format:"%0.2f m",number(d,"length")),vec(2.65,2.6-number(d,"length")*2,0),gold,40)

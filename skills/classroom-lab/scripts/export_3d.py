@@ -36,8 +36,35 @@ def prepare(path):
         audio.append({'path':file,'at':s['at'],'duration':duration,'sha256':hashlib.sha256(file.read_bytes()).hexdigest()})
     return lesson,audio
 
+TEXT_KEYS=['subtitle','conclusion','leftValue','rightValue','leftDetail','rightDetail','stageTitle']
+def skeleton(v):
+    # Numbers ticking during a parameter move are not a text change; only a different sentence is.
+    import re;return re.sub(r'[0-9.]+','#',str(v))
+
+def text_fades(lesson,fps,fade_in=.22,fade_out=.14):
+    """Change times of every on-screen text, sampled on the frame grid. Returns alpha(key,t)."""
+    grid=[i/fps for i in range(math.ceil(lesson['duration']*fps))];changes={k:[] for k in TEXT_KEYS};last={}
+    for t in grid:
+        d=state(lesson,t)
+        for k in TEXT_KEYS:
+            if k in d and k in last and skeleton(d[k])!=skeleton(last[k]):changes[k].append(t)
+        last=d
+    def alpha(k,t):
+        a=1.0
+        for c in changes[k]:
+            if c<=t:a=min(1.0,(t-c)/fade_in)
+            elif c-t<fade_out:a=min(a,(c-t)/fade_out)
+        return max(0.0,a)*(1.0 if t>=0 else 0)
+    return alpha
+
+def frame_state(lesson,t,alpha):
+    d=state(lesson,t)
+    for k in TEXT_KEYS:
+        if k in d:d[k+'Alpha']=alpha(k,t)
+    return d
+
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--lesson',required=True,type=Path);ap.add_argument('--out',required=True,type=Path);ap.add_argument('--force',action='store_true');ap.add_argument('--fps',type=int,default=30);ap.add_argument('--preview',help='Comma-separated seconds: save still PNGs instead of an MP4');args=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--lesson',required=True,type=Path);ap.add_argument('--out',required=True,type=Path);ap.add_argument('--force',action='store_true');ap.add_argument('--fps',type=int,default=30);ap.add_argument('--preview',help='Comma-separated seconds: save still PNGs instead of an MP4');ap.add_argument('--motion-blur',type=int,default=4,help='Sub-frames averaged per output frame (1 = off)');ap.add_argument('--shutter',type=float,default=.5,help='Fraction of the frame interval the shutter stays open (0.5 = 180°)');args=ap.parse_args()
     if platform.system()!='Darwin':raise RuntimeError('This backend needs macOS, Metal and Swift. Use a permitted native 3D backend on other systems; do not silently flatten to SVG.')
     if args.fps<1 or args.fps>60:raise ValueError('fps must be 1..60')
     out=args.out.resolve()
@@ -47,21 +74,26 @@ def main():
         if not shutil.which(command):raise RuntimeError(f'Missing {command}; the assistant must prepare the rendering environment')
     lesson,audio=prepare(args.lesson)
     times=[float(x) for x in args.preview.split(',')] if args.preview else [i/args.fps for i in range(math.ceil(lesson['duration']*args.fps))]
+    blur=1 if args.preview else max(1,args.motion_blur)
+    if not 0<=args.shutter<=1:raise ValueError('shutter must be 0..1')
+    # Each output frame averages `blur` renders spread over the open shutter, ending on the frame time.
+    sub=[max(0.0,t-args.shutter*(blur-1-k)/max(1,blur-1)/args.fps) for t in times for k in range(blur)]
     if any(not math.isfinite(t) or t<0 or t>=lesson['duration'] for t in times):raise ValueError('Preview times must be within the lesson')
     out.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.native-3d-',dir=out.parent) as tmp:
         tmp=Path(tmp);exe=tmp/'renderer'
         run(['xcrun','swiftc','-O',HERE/'native-3d/Render.swift','-o',exe])
-        timeline=tmp/'frames.json';timeline.write_text(json.dumps({'title':lesson['title'],'sceneType':lesson['sceneType'],'frames':[state(lesson,t) for t in times]},ensure_ascii=False))
+        timeline=tmp/'frames.json';alpha=text_fades(lesson,args.fps);timeline.write_text(json.dumps({'title':lesson['title'],'sceneType':lesson['sceneType'],'frames':[frame_state(lesson,t,alpha) for t in sub]},ensure_ascii=False))
         if args.preview:
             shots=tmp/'stills';shots.mkdir();run([exe,timeline,shots]);out.mkdir(parents=True,exist_ok=True)
             for p in shots.iterdir():shutil.copy2(p,out/p.name)
             shutil.copy2(timeline,out/'states.json');print('Preview:',out);return
-        target=tmp/'animation.mp4';ff=['ffmpeg','-hide_banner','-loglevel','error','-y','-f','rawvideo','-pixel_format','rgba','-video_size','1920x1080','-framerate',str(args.fps),'-i','pipe:0']
+        target=tmp/'animation.mp4';ff=['ffmpeg','-hide_banner','-loglevel','error','-y','-f','rawvideo','-pixel_format','rgba','-video_size','1920x1080','-framerate',str(args.fps*blur),'-i','pipe:0']
         for a in audio:ff+=['-i',str(a['path'])]
         filters=[f'[{i+1}:a]aresample=48000,asetpts=PTS-STARTPTS,adelay={round(a["at"]*1000)}:all=1[a{i}]' for i,a in enumerate(audio)]
         filters+=[''.join(f'[a{i}]' for i in range(len(audio)))+f'amix=inputs={len(audio)}:normalize=0,apad,atrim=0:{lesson["duration"]}[voice]']
-        ff+=['-filter_complex',';'.join(filters),'-map','0:v:0','-map','[voice]','-c:v','libx264','-preset','fast','-crf','20','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-ar','48000','-ac','2','-t',str(lesson['duration']),'-movflags','+faststart',str(target)]
+        filters.insert(0,f"[0:v]tmix=frames={blur},select='eq(mod(n\\,{blur})\\,{blur-1})',setpts=N/{args.fps}/TB[vid]")
+        ff+=['-filter_complex',';'.join(filters),'-map','[vid]','-map','[voice]','-r',str(args.fps),'-c:v','libx264','-preset','medium','-crf','18','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-ar','48000','-ac','2','-t',str(lesson['duration']),'-movflags','+faststart',str(target)]
         encoder=None;render=None
         try:
             encoder=subprocess.Popen(ff,stdin=subprocess.PIPE)
@@ -79,7 +111,7 @@ def main():
         for t in [0,3,10,14,18,26,30,lesson['duration']-.1]:
             if t>=lesson['duration']:continue
             run(['ffmpeg','-v','error','-y','-ss',str(t),'-i',target,'-frames:v','1','-update','1',qa/f'{t:05.1f}s.jpg'])
-        report={'renderer':'Native SceneKit/Metal true 3D meshes, PBR materials, camera and lights','browserCapture':False,'sceneType':lesson['sceneType'],'frames':len(times),'fps':args.fps,'width':1920,'height':1080,'duration':float(info['format']['duration']),'videoCodec':v['codec_name'],'audioCodec':a['codec_name'],'fullDecode':'passed','audio':[dict(x,path=str(x['path'].relative_to(args.lesson.resolve().parent))) for x in audio],'subtitleTiming':'phrase length proportional within probed narration duration; not forced aligned','visualReview':'pending','listeningReview':'pending','powerPointInsertion':'not tested','sourceSha256':hashlib.sha256((HERE/'native-3d/Render.swift').read_bytes()).hexdigest()}
+        report={'renderer':'Native SceneKit/Metal true 3D meshes, PBR materials, camera and lights','motionBlur':{'subframes':blur,'shutter':args.shutter},'textTransitions':'cross-fade on sentence change','browserCapture':False,'sceneType':lesson['sceneType'],'frames':len(times),'fps':args.fps,'width':1920,'height':1080,'duration':float(info['format']['duration']),'videoCodec':v['codec_name'],'audioCodec':a['codec_name'],'fullDecode':'passed','audio':[dict(x,path=str(x['path'].relative_to(args.lesson.resolve().parent))) for x in audio],'subtitleTiming':'phrase length proportional within probed narration duration; not forced aligned','visualReview':'pending','listeningReview':'pending','powerPointInsertion':'not tested','sourceSha256':hashlib.sha256((HERE/'native-3d/Render.swift').read_bytes()).hexdigest()}
         (qa/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
         if args.force:os.replace(target,out)
         else:os.link(target,out)

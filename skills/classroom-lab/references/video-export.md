@@ -8,7 +8,7 @@
 
 - SVG场景：本Skill的 `scripts/export_video.cjs` 可从 `lesson.json` 与 `scene.js` 直接渲染帧、按阶段合成旁白，输出MP4，不打开浏览器。适用于以SVG元素表示全部画面的场景；支持现有DOM属性更新及整段SVG重绘。内置化学溶解/生物有丝分裂可复用此路径。
 - 三维实体实验：先读 [原生三维MP4](native-3d-video.md)。随包的 `scripts/export_3d.py` 已实现macOS SceneKit/Metal → MP4，附杠杆、单摆、折射、溶解和有丝分裂五种有声样例，支持实际三维材质、灯光和镜头。其他系统需选择可用的真实三维后端。
-- 其他Canvas、WebGL、三维：使用当前环境允许且实际可用的原生视频渲染流程，或预先设计能按时间定位的专用渲染器。这个SVG脚本不录制Canvas或WebGL，也不把三维静默变为平面。保留材质、镜头和原科学模型。浏览器工具拒绝访问时不能用另一协议、浏览器或原始自动化接口绕过。
+- 其他Canvas、WebGL、三维：使用当前环境允许且实际可用的原生视频渲染流程，或写成按时间定位的页面（`window.DURATION`、`window.renderAt(t)`、`window.__ready`），用 `scripts/render_web.mjs` 逐帧求值导出；它不是录屏，每帧平均多个子帧形成快门模糊（默认 5 个子帧、180° 快门），旁白用 `--audio` 合入。依赖 Node、FFmpeg、本机 Chrome/Chromium 和 `scripts/package.json` 中固定版本的 puppeteer-core。这个SVG脚本不录制Canvas或WebGL，也不把三维静默变为平面。保留材质、镜头和原科学模型。浏览器工具拒绝访问时不能用另一协议、浏览器或原始自动化接口绕过。
 - 已有HTML：不能只改扩展名。优先取对应场景源码与配音重新渲染；只有具备实际允许的录制能力时才录制，裁掉控件且检查掉帧/音画同步。
 
 ## SVG导出器（代理使用）

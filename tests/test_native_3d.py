@@ -37,6 +37,17 @@ class NativePhysics(unittest.TestCase):
  def test_seek_independent_of_call_order(self):
   for k in ['lever','pendulum','refraction']:
    d=lesson(k);a=state(d,15.25);state(d,30);state(d,1);self.assertEqual(a,state(d,15.25))
+ def test_no_snaps_between_frames(self):
+  # Smoothness: nothing the camera sees may jump between consecutive 30 fps frames, stage boundaries included.
+  for k,key,limit in [('lever','angle',.02),('lever','leftMass',8),('refraction','incident',.03),('refraction','refracted',.03)]:
+   d=lesson(k);prev=state(d,0)[key]
+   for f in range(1,int(d['duration']*30)):
+    cur=state(d,f/30)[key];self.assertLess(abs(cur-prev),limit,f'{k}.{key} jumps at {f/30:.2f}s');prev=cur
+ def test_lever_labels_name_real_weights(self):
+  d=lesson('lever')
+  for f in range(0,int(d['duration']*30)):
+   s=state(d,f/30);self.assertIn(s['leftMassShown'],(50,100,150,200));self.assertIn(s['rightMassShown'],(50,100,150,200))
+   self.assertNotRegex(s['leftValue'],r'^(?!50 |100 |150 |200 )')
  def test_subtitles_end_with_actual_audio(self):
   d=lesson('refraction');self.assertNotEqual(state(d,25)['subtitle'],'');self.assertEqual(state(d,35.5)['subtitle'],'')
 

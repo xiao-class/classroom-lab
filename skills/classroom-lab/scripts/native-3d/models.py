@@ -27,19 +27,27 @@ def subtitle(stage,u):
 
 def state(lesson,t):
     i=stage_at(lesson,t);s=lesson['stages'][i];u=t-s['at'];p=params_at(lesson,i);prev=params_at(lesson,max(0,i-1))
-    d={'time':t,'stage':i,'stageTitle':s['title'],'subtitle':subtitle(s,u),'progress':t/lesson['duration']}
+    d={'time':t,'stage':i,'stageTitle':s['title'],'subtitle':subtitle(s,u),'progress':t/lesson['duration'],
+       # Slow, continuous push-in after the opening move: the shot never freezes, and never orbits.
+       'drift':smooth(t,3.2,lesson['duration'])}
     kind=lesson['sceneType']
     if kind=='lever':
         distance=p['distance'] if i==0 else lerp(prev['distance'],p['distance'],smooth(u,1.5 if i==1 else 4,3.5 if i==1 else 6))
-        left=p['leftMass']/1000*9.8*.20;right=p['rightMass']/1000*9.8*distance/100
+        # Weights are exchanged over ~1.2 s instead of popping on the stage boundary, so the beam turns continuously.
+        swap=1 if i==0 else smooth(u,.25,1.5)
+        lm=lerp(prev['leftMass'],p['leftMass'],swap);rm=lerp(prev['rightMass'],p['rightMass'],swap)
+        # Labels name only real weights (the target set); the in-between masses exist only as motion.
+        shownL,shownR=(p['leftMass'],p['rightMass']) if swap>=.5 else (prev['leftMass'],prev['rightMass'])
+        tl_=shownL/1000*9.8*.20;tr_=shownR/1000*9.8*distance/100
+        left=lm/1000*9.8*.20;right=rm/1000*9.8*distance/100
         reveal=smooth(u,s['audioDuration']+1,s['audioDuration']+2.5) if i==0 else 1
         angle=.22*(left-right)/max(left,right)*reveal
-        d.update(leftMass=p['leftMass'],rightMass=p['rightMass'],distance=distance,leftTorque=left,rightTorque=right,angle=angle,
-            reveal=reveal,leftValue=f"{p['leftMass']:g} g × 20 cm",rightValue=f"{p['rightMass']:g} g × {distance:.0f} cm",
-            leftDetail='先预测，暂不揭示结果' if reveal==0 else f'水平参考力矩 {left*100:.1f} N·cm',
-            rightDetail='哪一侧会下降？' if reveal==0 else f'水平参考力矩 {right*100:.1f} N·cm',
+        d.update(leftMass=lm,rightMass=rm,leftMassShown=shownL,rightMassShown=shownR,distance=distance,leftTorque=left,rightTorque=right,angle=angle,
+            reveal=reveal,leftValue=f"{shownL:g} g × 20 cm",rightValue=f"{shownR:g} g × {distance:.0f} cm",
+            leftDetail='先预测，暂不揭示结果' if reveal==0 else f'水平参考力矩 {tl_*100:.1f} N·cm',
+            rightDetail='哪一侧会下降？' if reveal==0 else f'水平参考力矩 {tr_*100:.1f} N·cm',
             note='理想轻杆 · 倾斜幅度与速度为示意 · 力矩随倾角同乘 cos θ')
-        d['conclusion']='先猜，再观察' if reveal==0 else ('两侧力矩相等，杠杆平衡' if abs(left-right)<1e-7 else ('左侧力矩较大，左端下降' if left>right else '右侧力矩较大，右端下降'))
+        d['conclusion']='先猜，再观察' if reveal==0 else ('两侧力矩相等，杠杆平衡' if abs(tl_-tr_)<1e-7 else ('左侧力矩较大，左端下降' if tl_>tr_ else '右侧力矩较大，右端下降'))
     elif kind=='pendulum':
         length=p['length'] if i!=1 else lerp(prev['length'],p['length'],smooth(u,.4,1.4))
         elapsed=max(0,u-(3.5 if i==0 else 2))
