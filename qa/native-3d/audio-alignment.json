@@ -1,0 +1,62 @@
+[
+  {
+    "scene": "lever",
+    "stage": 1,
+    "at": 0,
+    "audioMatchCorrelation": 0.9999957817126199
+  },
+  {
+    "scene": "lever",
+    "stage": 2,
+    "at": 12,
+    "audioMatchCorrelation": 0.9999956834946246
+  },
+  {
+    "scene": "lever",
+    "stage": 3,
+    "at": 24,
+    "audioMatchCorrelation": 0.9999962947060628
+  },
+  {
+    "scene": "pendulum",
+    "stage": 1,
+    "at": 0,
+    "audioMatchCorrelation": 0.9999953111692468
+  },
+  {
+    "scene": "pendulum",
+    "stage": 2,
+    "at": 12,
+    "audioMatchCorrelation": 0.9999954630103669
+  },
+  {
+    "scene": "pendulum",
+    "stage": 3,
+    "at": 24,
+    "audioMatchCorrelation": 0.9999954228851482
+  },
+  {
+    "scene": "refraction",
+    "stage": 1,
+    "at": 0,
+    "audioMatchCorrelation": 0.9999955252531584
+  },
+  {
+    "scene": "refraction",
+    "stage": 2,
+    "at": 12,
+    "audioMatchCorrelation": 0.9999956992022841
+  },
+  {
+    "scene": "refraction",
+    "stage": 3,
+    "at": 24,
+    "audioMatchCorrelation": 0.999995156917104
+  },
+  {
+    "scene": "refraction",
+    "stage": 4,
+    "at": 36,
+    "audioMatchCorrelation": 0.9999960464153423
+  }
+]

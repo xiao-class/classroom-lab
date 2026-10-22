@@ -1,0 +1,26 @@
+{
+  "杠杆平衡": {
+    "bytes": 3548704,
+    "sha256": "461beac34ea2e701e23f039912e849d3c70f540ad02870a45d0bd8996b50c8d1",
+    "volume": [
+      "mean_volume: -23.9 dB",
+      "max_volume: -5.4 dB"
+    ]
+  },
+  "单摆周期": {
+    "bytes": 3758072,
+    "sha256": "33da54951b8eecbf95377e3d163017584c00e911e850fee4d708a616f92240cd",
+    "volume": [
+      "mean_volume: -23.8 dB",
+      "max_volume: -5.8 dB"
+    ]
+  },
+  "光的折射": {
+    "bytes": 3570631,
+    "sha256": "70ae2e934b963595583113d0958224e5574de129881de2003d12fef0e31a73ea",
+    "volume": [
+      "mean_volume: -23.3 dB",
+      "max_volume: -5.9 dB"
+    ]
+  }
+}

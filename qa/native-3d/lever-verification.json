@@ -1,0 +1,39 @@
+{
+  "renderer": "Native SceneKit/Metal true 3D meshes, PBR materials, camera and lights",
+  "browserCapture": false,
+  "sceneType": "lever",
+  "frames": 1080,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 36.0,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "fullDecode": "passed",
+  "audio": [
+    {
+      "path": "audio/stage-1.mp3",
+      "at": 0,
+      "duration": 7.512,
+      "sha256": "8aa646894cd66adaa0a7f95137bf49da3931cf1bad674341823ed06801018583"
+    },
+    {
+      "path": "audio/stage-2.mp3",
+      "at": 12,
+      "duration": 6.912,
+      "sha256": "57f5f8fc2d47a3b408d8a65f7436cc58d32ea90219bdab1c0e6f961e6ab681b5"
+    },
+    {
+      "path": "audio/stage-3.mp3",
+      "at": 24,
+      "duration": 7.248,
+      "sha256": "9a9473cc66fccc2f302f26989a38dfdc34b9600d31050adca8631da4e5894a80"
+    }
+  ],
+  "subtitleTiming": "phrase length proportional within probed narration duration; not forced aligned",
+  "visualReview": "Final MP4: inspected opening, stable camera, stage transitions, changed conditions and ending contact sheets",
+  "listeningReview": "pending",
+  "powerPointInsertion": "not tested",
+  "sourceSha256": "eac888c1993b2cd2ddfc4ce5f614af55194e6223eec2e76b0146491b653f4a1b",
+  "audioAlignment": "All ten narration segments compared against decoded MP4 at intended start; correlation > 0.99999"
+}

@@ -22,35 +22,35 @@ https://github.com/user-attachments/assets/82409a41-3d20-4d40-a0ae-f5a6fd7a3666
 
 ## 默认交付 MP4
 
-默认输出 16:9、1080p、30fps、H.264/AAC 视频，沿用晓晓讲解。教师不用录屏、转格式或操作代码；渲染工具由 AI 助手准备。当前内置导出器支持 SVG 场景，Canvas/三维需使用其他实际可用的渲染路径，不能静默降为平面。
+默认输出 16:9、1080p、30fps、H.264/AAC 视频，沿用晓晓讲解。教师不用录屏、转格式或操作代码；渲染工具由 AI 助手准备。内置 SVG 导出器与 macOS 原生三维导出器，已制作杠杆、单摆、折射三支真正的三维有声样片。
 
 [下载化学实验 MP4：氯化钠溶解（52 秒）](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4) · [查看视频导出说明](skills/classroom-lab/references/video-export.md)
 
 ## 直接看视频
 
-所有教学视频都带晓晓中文讲解，下载后可插入PPT。开场是独立制作的无声三维概念片，不代表每个实验自动获得相同三维效果。
+所有教学视频都带晓晓中文讲解，下载后可插入PPT。播放器若显示静音，点击小喇叭开启声音。开场是独立制作的无声三维概念片，不代表每个实验自动获得相同三维效果。
 
 ### 物理 · 杠杆平衡
 
-36 秒 · 晓晓讲解 · 当前为二维教学样片
+36 秒 · 晓晓讲解 · 真实三维教学成片
 
-https://github.com/user-attachments/assets/c4709cb7-4115-4cf5-904f-f080af59d62e
+https://github.com/user-attachments/assets/00d698e2-95a7-42a9-9a3c-2268f88600c1
 
 [下载 MP4](https://xiao-class.github.io/classroom-lab/examples/lever/animation.mp4)
 
 ### 物理 · 单摆的周期
 
-36 秒 · 晓晓讲解 · 当前为二维教学样片
+36 秒 · 晓晓讲解 · 真实三维教学成片
 
-https://github.com/user-attachments/assets/d19eb4d8-37b2-4bff-b1a2-bebb89a7b19f
+https://github.com/user-attachments/assets/bac100c8-9a06-4a89-96e7-6c1ea51c4fba
 
 [下载 MP4](https://xiao-class.github.io/classroom-lab/examples/pendulum/animation.mp4)
 
 ### 物理 · 光的折射
 
-49 秒 · 晓晓讲解 · 当前为二维教学样片
+49 秒 · 晓晓讲解 · 真实三维教学成片
 
-https://github.com/user-attachments/assets/9ef698e5-9f33-4dd3-8674-6c8572bc497b
+https://github.com/user-attachments/assets/f601b9bf-ff33-49e0-9d25-947c14bdcb36
 
 [下载 MP4](https://xiao-class.github.io/classroom-lab/examples/refraction/animation.mp4)
 
@@ -75,7 +75,11 @@ https://github.com/user-attachments/assets/859226be-6269-4679-9131-54f5f6138b8c
 <details>
 <summary>三维实验做到哪里了？</summary>
 
-宣传开场使用真实三维模型。三个物理教学 MP4 目前仍由二维场景导出，尚未升级成与开场一致的三维成片。[三维杠杆互动原型](https://xiao-class.github.io/classroom-lab/examples/lever-3d/)已经存在，本次在公开网页实际看到三维渲染并验证了播放，但尚未完成三维 MP4 的导出与验证。三维成片完成前，不把二维样片标成三维。
+杠杆、单摆、折射已升级为真实三维有声 MP4：金属器材、实体球体、立体水槽、灯光、相机和模型计算共同驱动画面。讲解沿用晓晓，保留预测与观察停顿。三维画面和数值来自对应实验模型，宣传片仍是独立概念开场。
+
+Skill 已包含三个有声配方和[三维导出流程](skills/classroom-lab/references/native-3d-video.md)。内置三维后端目前在 macOS 上验证通过；其他系统需要可用的三维渲染后端，不能静默改成二维。已导出的 MP4 无需安装渲染工具。化学和生物样片仍是各自的示意动画，不冒称已全部三维化。
+
+[三维杠杆互动原型](https://xiao-class.github.io/classroom-lab/examples/lever-3d/)作为额外网页演示保留，与新视频分别维护。
 
 </details>
 
@@ -195,7 +199,7 @@ node tests/models.cjs
 python3 skills/classroom-lab/scripts/build.py --lesson skills/classroom-lab/assets/lever-demo/lesson.json --scene skills/classroom-lab/assets/lever-demo/scene.js --out examples/lever/index.html --force
 ```
 
-HTML构建器只依赖 Python 标准库；MP4导出还需要Node.js、FFmpeg、字体及scripts/package.json中的依赖，见 [MP4交付](skills/classroom-lab/references/video-export.md)。浏览器测试另外需要 Node.js、Playwright 和 Chromium：
+HTML构建器只依赖 Python 标准库；SVG视频导出需要Node.js、FFmpeg、字体及scripts/package.json中的依赖。新增三维视频导出使用macOS Swift/SceneKit/Metal与FFmpeg，代理准备依赖，见 [MP4交付](skills/classroom-lab/references/video-export.md) 和 [三维制作](skills/classroom-lab/references/native-3d-video.md)。浏览器测试另外需要 Node.js、Playwright 和 Chromium：
 
 ```sh
 npm install --no-save playwright
