@@ -18,7 +18,7 @@
 
 ## 可直接复用的三维网页基础
 
-默认MP4的实际渲染路径见 [MP4交付](video-export.md)。真实三维成片可用 [原生三维MP4](native-3d-video.md) 的macOS后端和三个物理样例。下面资源用于额外的互动网页，与原生视频后端分别维护；修改一个版本后不能声称另一个已同步。
+默认MP4的实际渲染路径见 [MP4交付](video-export.md)。真实三维成片可用 [原生三维MP4](native-3d-video.md) 的macOS后端和五个跨学科样例。下面资源用于额外的互动网页，与原生视频后端分别维护；修改一个版本后不能声称另一个已同步。
 
 - [本地运行库](../assets/three-stage/runtime.min.js)：`Lab3D.T` 是 Three.js；`Lab3D.createStage(svg)` 建立 Canvas、场景、相机、主光/轮廓光、环境反射、地面、尺寸适配。无需服务器或 CDN。
 - [基础源码](../assets/three-stage/stage.js)：可按实验修改；默认配色、地面与相机不是统一硬性风格。
@@ -31,7 +31,7 @@
 
 ## 化学与生物起点
 
-随Skill附有[氯化钠溶解](../assets/dissolution-demo/lesson.json)和[动物细胞有丝分裂](../assets/mitosis-demo/lesson.json)两个有声过程示例。采用SVG的明暗与空间层次，不把它们称为真实三维仿真。按观察目标选技术；要求更强三维时可在同一模型之上替换绘制方式。
+随Skill附有[氯化钠溶解](../assets/dissolution-demo/lesson.json)和[动物细胞有丝分裂](../assets/mitosis-demo/lesson.json)两个有声过程示例。这些 `*-demo` 为原SVG互动起点。真正的三维MP4配方在 `assets/life-3d/`，可直接复用原生导出流程；二者分别维护，不把三维过程示意称为分子动力学或真实显微影像。
 
 ## 验证边界
 

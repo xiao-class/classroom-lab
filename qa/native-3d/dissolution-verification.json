@@ -1,0 +1,45 @@
+{
+  "renderer": "Native SceneKit/Metal true 3D meshes, PBR materials, camera and lights",
+  "browserCapture": false,
+  "sceneType": "dissolution",
+  "frames": 1560,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 52.0,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "fullDecode": "passed",
+  "audio": [
+    {
+      "path": "audio/stage-1.mp3",
+      "at": 0,
+      "duration": 8.496,
+      "sha256": "22f32c5ba100b677af60e5873b7e67a3c38cdfcd20f6f633d660a70c4c11b315"
+    },
+    {
+      "path": "audio/stage-2.mp3",
+      "at": 12,
+      "duration": 7.536,
+      "sha256": "076698935004102253e3583c4f323544f422181e34117cc7e158b93d5184368d"
+    },
+    {
+      "path": "audio/stage-3.mp3",
+      "at": 26,
+      "duration": 7.752,
+      "sha256": "4341912befec302d0fd075780bda1eba1aa64eadf7411e936f62cf0c6fa16fa1"
+    },
+    {
+      "path": "audio/stage-4.mp3",
+      "at": 40,
+      "duration": 8.496,
+      "sha256": "40c718061271cd160535c6e1c565072dbebb2f4af21cfd65a91823945321d349"
+    }
+  ],
+  "subtitleTiming": "phrase length proportional within probed narration duration; not forced aligned",
+  "visualReview": "Final frames reviewed; see contact sheet",
+  "listeningReview": "pending",
+  "powerPointInsertion": "not tested",
+  "sourceSha256": "af1ffa4836c0583b90ec9519f9e97c3e286f3cb1b0247ec814769038e306a588",
+  "audioAlignment": "all four original narration segments compared with final decoded MP4"
+}

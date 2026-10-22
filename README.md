@@ -22,7 +22,7 @@ https://github.com/user-attachments/assets/82409a41-3d20-4d40-a0ae-f5a6fd7a3666
 
 ## 默认交付 MP4
 
-默认输出 16:9、1080p、30fps、H.264/AAC 视频，沿用晓晓讲解。教师不用录屏、转格式或操作代码；渲染工具由 AI 助手准备。内置 SVG 导出器与 macOS 原生三维导出器，已制作杠杆、单摆、折射三支真正的三维有声样片。
+默认输出 16:9、1080p、30fps、H.264/AAC 视频，沿用晓晓讲解。教师不用录屏、转格式或操作代码；渲染工具由 AI 助手准备。内置 SVG 导出器与 macOS 原生三维导出器，已制作杠杆、单摆、折射、氯化钠溶解和动物细胞有丝分裂五支真正的三维有声样片。
 
 [下载化学实验 MP4：氯化钠溶解（52 秒）](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4) · [查看视频导出说明](skills/classroom-lab/references/video-export.md)
 
@@ -56,17 +56,17 @@ https://github.com/user-attachments/assets/f601b9bf-ff33-49e0-9d25-947c14bdcb36
 
 ### 化学 · 氯化钠溶解
 
-52 秒 · 晓晓讲解 · 离子分散的微观示意
+52 秒 · 晓晓讲解 · 三维晶格、分散与水合示意
 
-https://github.com/user-attachments/assets/3c51898f-438e-4051-893a-ed45f624c897
+https://github.com/user-attachments/assets/f6d37301-f936-46d1-b78a-280dd7b33396
 
 [下载 MP4](https://xiao-class.github.io/classroom-lab/examples/dissolution/animation.mp4)
 
 ### 生物 · 动物细胞有丝分裂
 
-56 秒 · 晓晓讲解 · 染色体分离的过程示意
+56 秒 · 晓晓讲解 · 三维细胞剖开与染色体分离
 
-https://github.com/user-attachments/assets/859226be-6269-4679-9131-54f5f6138b8c
+https://github.com/user-attachments/assets/ebfd676c-25c6-4815-883d-14bc3bc2bd7a
 
 [下载 MP4](https://xiao-class.github.io/classroom-lab/examples/mitosis/animation.mp4)
 
@@ -75,9 +75,9 @@ https://github.com/user-attachments/assets/859226be-6269-4679-9131-54f5f6138b8c
 <details>
 <summary>三维实验做到哪里了？</summary>
 
-杠杆、单摆、折射已升级为真实三维有声 MP4：金属器材、实体球体、立体水槽、灯光、相机和模型计算共同驱动画面。讲解沿用晓晓，保留预测与观察停顿。三维画面和数值来自对应实验模型，宣传片仍是独立概念开场。
+五支教学样片现已全部使用真实三维几何渲染：物理器材与光路、化学晶格和水合、生物细胞剖开与缢裂。灯光、相机和对应教学模型共同驱动画面。讲解沿用晓晓，保留预测与观察停顿。三维画面和数值来自对应实验模型，宣传片仍是独立概念开场。
 
-Skill 已包含三个有声配方和[三维导出流程](skills/classroom-lab/references/native-3d-video.md)。内置三维后端目前在 macOS 上验证通过；其他系统需要可用的三维渲染后端，不能静默改成二维。已导出的 MP4 无需安装渲染工具。化学和生物样片仍是各自的示意动画，不冒称已全部三维化。
+Skill 已包含五个有声配方和[三维导出流程](skills/classroom-lab/references/native-3d-video.md)。内置三维后端目前在 macOS 上验证通过；其他系统需要可用的三维渲染后端，不能静默改成二维。已导出的 MP4 无需安装渲染工具。化学与生物属于三维过程示意，不冒称分子动力学或真实显微影像；水合代表粒子不额外计数，分裂前后核DNA保持守恒。
 
 [三维杠杆互动原型](https://xiao-class.github.io/classroom-lab/examples/lever-3d/)作为额外网页演示保留，与新视频分别维护。
 

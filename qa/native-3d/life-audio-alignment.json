@@ -1,0 +1,70 @@
+[
+  {
+    "scene": "dissolution",
+    "sha256": "4174c8c3f60d2f46f19fdef380f51682fea932ff0b79de5ef97cb510c4de672b",
+    "audio": [
+      {
+        "at": 0,
+        "samples": 135936,
+        "correlation": 0.999996667499906,
+        "originalAudioUnchanged": true
+      },
+      {
+        "at": 12,
+        "samples": 120576,
+        "correlation": 0.9999959875612434,
+        "originalAudioUnchanged": true
+      },
+      {
+        "at": 26,
+        "samples": 124032,
+        "correlation": 0.9999959314166126,
+        "originalAudioUnchanged": true
+      },
+      {
+        "at": 40,
+        "samples": 135936,
+        "correlation": 0.9999961372507602,
+        "originalAudioUnchanged": true
+      }
+    ],
+    "volume": {
+      "mean_volume": -23.8,
+      "max_volume": -5.5
+    }
+  },
+  {
+    "scene": "mitosis",
+    "sha256": "a67f5e9f775145f942c0bf7542a2dcea6ac70bc0a3ae1ddb91b89541dbf2e598",
+    "audio": [
+      {
+        "at": 0,
+        "samples": 144384,
+        "correlation": 0.9999956366047572,
+        "originalAudioUnchanged": true
+      },
+      {
+        "at": 14,
+        "samples": 140160,
+        "correlation": 0.9999958326395962,
+        "originalAudioUnchanged": true
+      },
+      {
+        "at": 28,
+        "samples": 140160,
+        "correlation": 0.9999955295879278,
+        "originalAudioUnchanged": true
+      },
+      {
+        "at": 42,
+        "samples": 147456,
+        "correlation": 0.9999958166283298,
+        "originalAudioUnchanged": true
+      }
+    ],
+    "volume": {
+      "mean_volume": -23.9,
+      "max_volume": -6.2
+    }
+  }
+]

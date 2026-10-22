@@ -1,5 +1,6 @@
 """Deterministic teaching states, shared by geometry, labels and QA. SI except stated units."""
 import math,re
+from life_models import dissolution,mitosis
 
 def smooth(t,a,b):
     u=max(0,min(1,(t-a)/(b-a)));return u*u*(3-2*u)
@@ -57,5 +58,10 @@ def state(lesson,t):
             leftDetail='空气  n₁ = 1.00',rightDetail='水  n₂ = 1.33',
             note='平直界面 · 单色光 · 省略部分反射 · 光点仅示意传播方向')
         d['conclusion']='进入水中后，光会往哪边走？' if i==0 else ('垂直入射：方向不变，传播速度变小' if angle<.001 else '斜入射：折射光向法线偏折')
+    elif kind in ('dissolution','mitosis'):
+        beats=[0,12,26,40,52] if kind=='dissolution' else [0,14,28,42,56]
+        end=lesson['stages'][i+1]['at'] if i+1<len(lesson['stages']) else lesson['duration']
+        teaching_time=beats[i]+u/(end-s['at'])*(beats[i+1]-beats[i])
+        d.update((dissolution if kind=='dissolution' else mitosis)(teaching_time,i,teaching_time-beats[i]))
     else:raise ValueError('Unknown 3D sceneType; implement the requested science, do not relabel an existing scene')
     return d

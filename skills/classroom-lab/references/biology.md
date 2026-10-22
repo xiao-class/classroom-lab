@@ -19,3 +19,5 @@
 代理复制整个demo目录到新输出目录再改，用标准build.py构建。SVG层次、纺锤体线和染色体形变是可运行起点；其他生命过程仍需独立模型和布局。
 
 已查依据（2026-10-21）：[OpenStax 细胞周期](https://openstax.org/books/biology-2e/pages/10-2-the-cell-cycle)。新物种或新过程另查相应资料。
+
+三维MP4已提供独立配方：[有声配置](../assets/life-3d/mitosis/lesson.json)，使用[原生三维导出器](native-3d-video.md)。保留原SVG资源供互动网页需要，三维视频修改不自动改网页。

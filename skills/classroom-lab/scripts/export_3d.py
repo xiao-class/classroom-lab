@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Render actual 3D teaching MP4 with native SceneKit/Metal on macOS.
-No browser capture. The three included recipes are examples, not a universal simulator.
+No browser capture. The included recipes are examples, not a universal simulator.
 """
 import argparse,hashlib,json,math,os,platform,shutil,subprocess,sys,tempfile
 from pathlib import Path
@@ -17,13 +17,14 @@ def probe(path):
 
 def prepare(path):
     path=Path(path).resolve();lesson=json.loads(path.read_text());validate(lesson)
-    kind=lesson.get('sceneType');expected={'lever':3,'pendulum':3,'refraction':4}
-    if kind not in expected or len(lesson['stages'])!=expected[kind]:raise ValueError('Use a supported three/four-stage 3D recipe, or implement and verify a new model and scene.')
+    kind=lesson.get('sceneType');expected={'lever':3,'pendulum':3,'refraction':4,'dissolution':4,'mitosis':4}
+    if kind not in expected or len(lesson['stages'])!=expected[kind]:raise ValueError('Use a supported 3D recipe, or implement and verify a new model and scene.')
     if lesson['stages'][0]['at']!=0:raise ValueError('First stage must begin at zero')
+    if kind in ('dissolution','mitosis') and (lesson['parameters'] or any(s.get('values') for s in lesson['stages'])):raise ValueError('Life recipes are qualitative fixed-content models; implement parameter effects before adding controls')
     audio=[]
     for i,s in enumerate(lesson['stages']):
         p=params_at(lesson,i)
-        limits={'lever':{'leftMass':(50,200),'rightMass':(50,200),'distance':(10,40)},'pendulum':{'length':(.5,1.0),'mass':(50,200)},'refraction':{'angle':(0,75)}}[kind]
+        limits={'lever':{'leftMass':(50,200),'rightMass':(50,200),'distance':(10,40)},'pendulum':{'length':(.5,1.0),'mass':(50,200)},'refraction':{'angle':(0,75)},'dissolution':{},'mitosis':{}}[kind]
         for key,(low,high) in limits.items():
             if key not in p or not low<=p[key]<=high:raise ValueError(f'{key} is outside the verified geometry envelope {low}..{high}; adapt the 3D scene first')
         if not s.get('audioFile'):raise ValueError(f'Stage {i+1} has no narration')

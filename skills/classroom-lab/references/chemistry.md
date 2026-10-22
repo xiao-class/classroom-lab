@@ -18,3 +18,5 @@
 代理复制整个demo目录到课程输出目录，改题时重做相应粒子与模型；用标准build.py构建，不需Three.js库。三维分子/器材可另外用已有三维舞台。只换标题不算新实验。
 
 已查依据（2026-10-21）：[OpenStax 溶解过程](https://openstax.org/books/chemistry-2e/pages/11-1-the-dissolution-process)、[ACS 水为什么能溶解盐](https://www.acs.org/middleschoolchemistry/lessonplans/chapter5/lesson3.html)。新题仍需另查。
+
+三维MP4已提供独立配方：[有声配置](../assets/life-3d/dissolution/lesson.json)，使用[原生三维导出器](native-3d-video.md)。保留原SVG资源供互动网页需要，三维视频修改不自动改网页。
